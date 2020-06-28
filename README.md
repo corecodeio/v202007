@@ -64,15 +64,34 @@ En ocasiones, María ha enviado órdenes incompletas o equivocadas.
 
 Así como María, cientos de otros operadores de negocios se encuentran en la misma situación, intentando adaptarse a la alta demanda de sus productos y servicios por servicios de mensajería, llegando a un límite de su eficiencia y control.
 
-...
+En este punto, donde las capacidades humanas se ven limitadas, es oportuno pensar en incluir nuevas tecnologías, que puedan adaptarse y personalizarse.
+
+El objetivo es brindar a María y a los cientos de operadores una plataforma que pueda adaptarse a las necesidades crecientes de su negocio, en donde la configuración y personalización no sean tediosas. La plataforma tiene como objetivo adaptarse a cualquier negocio que la implemente.
+
+La plataforma debe proveer a María la opción de crear, editar y personalizar formularios para la realización de pedidos. Los formularios brindan más seguridad y son menos propensos a errores. En ellos se puede incluir la cantidad de productos que se desean, la dirección de entrega, los métodos de pago disponibles, etc... 
+Por último la opción de crear formularios personalizados le permite a María marcar campos como requeridos, confirmación, etc... Haciendo que las ordenes cada vez sean menos propensas a resultar incompletas.
+
+La plataforma debe contar con un chat para brindar atención personalizada. Esto puede resultar en una tarea tediosa para María, pero gracias a herramientas como el NLP esto ya no es un problema.
+
+La plataforma debe poder permitir contestar a los clientes de forma automática, agradable y natural. En base a las respuestas que los clientes puedan dar se les debe contestar y llevar a cabo acciones pertinentes, tales como:
+ - Consultar existencias ,promociones y restricciones. 
+ - Verificar el estado de su orden.
+ - Horarios de atención.
+ - Ubicaciones físicas.
+María debe configurar algunos detalles especificos para que se pueda responder a los usuarios.
+
 
 ## Tecnologías
 
-...
+- [Firebase]()
+- [Google Cloud]()
+- [DialogFlow]()
+- [React Native]()
+- [React]()
 
 ## Tiempo de entrega
 
-...
+ Se estima un tiempo aproximado de un mes y medio.
 
 ## Presupuesto
 
