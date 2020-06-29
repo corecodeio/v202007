@@ -64,49 +64,49 @@ En ocasiones, María ha enviado órdenes incompletas o equivocadas.
 
 Así como María, cientos de otros operadores de negocios se encuentran en la misma situación, intentando adaptarse a la alta demanda de sus productos y servicios por servicios de mensajería, llegando a un límite de su eficiencia y control.
 
-## Solucion
+## Solución
 
-La herramienta seleccionada para la generacion de ordenes y pedidos sera la aplicacion de Whatsapp for Business, La Solucion verificara si el Numero de telefono del cliente si ya estiste en la base de datos o no, de existir solicitara la informacion del mismo al momento de confirmar la orden le solicitara los mismos.
+La herramienta seleccionada para la generación de ordenes y pedidos será la aplicación de Whatsapp for Business; La solución verificara si el numero de teléfono del cliente si ya existe en la base de datos o no, de existir solicitara la información del mismo al momento de confirmar la orden le solicitara los mismos.
 
-## confirmacion de Orden
+# Confirmación de Orden
 
-al momento de que el cliente confirmne una orden enviara un mensaje de confirmacion con su codigo de ordeny los datos realacionados a su pedido.
+Al momento de que el cliente confirme una orden enviara un mensaje de confirmación con su código de orden y los datos relacionados a su pedido.
 
-# Aplicaicon interna del cliente (Administrativa y de procesos)
+# Aplicación interna del cliente (Administrativa y de procesos)
 
-## Confirmacion de Orden
+# Confirmación de orden
 
-Al momenbto de recibir una confirmacion de un cliente por la herramienta Whatsapp for Business la misma generara un entrada para el sistema de Ordenes recibidas la cual contara el tiempo desdes que se recibio la orden hasta que se despacho.
+Al momento de recibir una confirmación de un cliente por la herramienta Whatsapp for Business la misma generara una entrada para el sistema de ordenes recibidas la cual contara el tiempo desde que se recibió la orden hasta que se despacho.
 
-## Despacho de Orden.
+# Despacho de Orden.
 
 Al momento de que la orden sea generada marcada para ser despachara le enviara un mensaje al mensajero para informarle que el pedido ya esta disponible para su entrega el tiempo empezara a contar desde que fue marcado como disponible hasta su entrega.
 
-## Catalogo de productos
+# Catalogo de productos
 
-la misma manejara un catalogo de productos disponibles a la venta ya se por combo o individual a ser agregados a la orden.
+La misma manejara un catalogo de productos disponibles a la venta ya se por combo o individual a ser agregados a la orden.
 
-## Catalogo de Clientes.
+# Catalogo de clientes.
 
-Informacion relacionada al cliente.
+Información relacionada al cliente.
 
 ## Tecnologías
 
 - NodeJs
 - React
 - GraphQl
-- Apollo Server : se utilizara debido a la gran versatilidad que tiene de poder recibin gran numero de peticiones y poder redireccionarlos ya sea a un servicio REST API, un microservicio o una Base de Datos.
+- Apollo Server: se utilizara debido a la gran versatilidad que tiene de poder recibir gran numero de peticiones y poder re direccionarlos ya sea a un servicio REST API, un micro servicio o una Base de Datos.
   -- Whatsapp for Business
 
   ![alt text](https://github.com/blindlp/v202007/blob/develop/tecnologia.jpg?raw=true)
 
 ## Infraestrucutra
 
-Utilizaremos la capoa AWS free donde ofrece determinadas horas de prueba de servicios o 12 meses gratis dependiendo lo que llegue a suceder de primero, se escoje AWS por la facilidad que tiene se ofrecer
+Utilizaremos la capa AWS free donde ofrece determinadas horas de prueba de servicios o 12 meses gratis dependiendo lo que llegue a suceder de primero, se escoge AWS por la facilidad que tiene se ofrecer
 
 - AWS
-- apollo-server-lambda: utilizar 1 Millon de transacciones en la capa gratis.
-- Whatsapp Kubernetes en una EC2 utilizano la capa gratis.
+- apollo-server-lambda: utilizar 1 millon de transacciones en la capa gratis.
+- Whatsapp Kubernetes en una EC2 utilizando la capa gratis.
 
 ![alt text](https://github.com/blindlp/v202007/blob/develop/infraestructura.jpg)
 
@@ -115,10 +115,12 @@ Utilizaremos la capoa AWS free donde ofrece determinadas horas de prueba de serv
 - Mongo Atlas: utilizar la capa gratis que ofrece actualmente este servicio en lo que maduramos el sistema
 - AWS RDS 750 Horas en la capa gratis ya sea MySql, PostgreSQL, MariaDB, Oracle BYOL o SQL Server o DynameDB nos ofrece 25Gb en la capa gratis.
 
+Clientes / Frontend
+
 ## Tiempo de entrega
 
-tiempo de entrega 20 semanas
+Tiempo de entrega 20 semanas
 
 ## Presupuesto
 
-Presupuesto pendiente de definir segun tipo de Cloud a utlizar
+Presupuesto pendiente de definir según tipo de Cloud a utilizar
