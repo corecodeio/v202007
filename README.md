@@ -68,25 +68,25 @@ Así como María, cientos de otros operadores de negocios se encuentran en la mi
 
 La herramienta seleccionada para la generacion de ordenes y pedidos sera la aplicacion de Whatsapp for Business, La Solucion verificara si el Numero de telefono del cliente si ya estiste en la base de datos o no, de existir solicitara la informacion del mismo al momento de confirmar la orden le solicitara los mismos.
 
-# confirmacion de Orden
+## confirmacion de Orden
 
 al momento de que el cliente confirmne una orden enviara un mensaje de confirmacion con su codigo de ordeny los datos realacionados a su pedido.
 
 # Aplicaicon interna del cliente (Administrativa y de procesos)
 
-# Confirmacion de Orden
+## Confirmacion de Orden
 
 Al momenbto de recibir una confirmacion de un cliente por la herramienta Whatsapp for Business la misma generara un entrada para el sistema de Ordenes recibidas la cual contara el tiempo desdes que se recibio la orden hasta que se despacho.
 
-# Despacho de Orden.
+## Despacho de Orden.
 
 Al momento de que la orden sea generada marcada para ser despachara le enviara un mensaje al mensajero para informarle que el pedido ya esta disponible para su entrega el tiempo empezara a contar desde que fue marcado como disponible hasta su entrega.
 
-# Catalogo de productos
+## Catalogo de productos
 
 la misma manejara un catalogo de productos disponibles a la venta ya se por combo o individual a ser agregados a la orden.
 
-# Catalogo de Clientes.
+## Catalogo de Clientes.
 
 Informacion relacionada al cliente.
 
