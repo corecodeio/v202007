@@ -1,4 +1,4 @@
 .env
 env.bat
 wordpress/.env
-omnichannel-server/node_modules/
+.vscode/
