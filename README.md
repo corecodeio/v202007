@@ -62,7 +62,7 @@ En ocasiones, María ha enviado órdenes incompletas o equivocadas.
 
 ## Descripción de la Solución
 
-Así como María, cientos de otros operadores de negocios se encuentran en la misma situación, intentando adaptarse a la alta demanda de sus productos y servicios por servicios de mensajería, llegando a un límite de su eficiencia y control.
+Así como María, cientos de otros operadores de negocios se encuentran en la misma situación, intentando adaptarse a la alta demanda de sus productos y servicios por canales de mensajería, llegando a un límite de su eficiencia y control.
 
 Por lo tanto, se propone gestionar los mensajes mediante la API (siglas de '_Application Programming Interface_') de Whatsapp Business, ya que la misma nos permite crear una interacción con usuarios mediante una [plantilla de mensajes](https://developers.facebook.com/docs/whatsapp/message-templates) almacenados en una base de datos, también se puede crear una plantilla de mensajes multimedia que serán de utilidad para la mejor interacción con los usuarios.
 
@@ -108,5 +108,8 @@ Se estima un tiempo de entrega de 2 meses y medio
 
 ## Presupuesto
 
-...
+USD 32,000
 
+### Costos de infraestructura
+
+USD 500 / mes
