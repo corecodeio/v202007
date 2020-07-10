@@ -1,5 +1,7 @@
+import { InjectionKey } from "./InjectionKey";
+
 export interface IDependencies {
-  provide(injectionKey: injectionKey, MessageSourceController);
+  provide<T>(injectionKey: InjectionKey<T>);
 
   destroy();
 }
