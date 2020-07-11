@@ -4,6 +4,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
+    "@corecodeio/libraries": "*",
     "typescript": "^3.9.6"
   },
   "devDependencies": {
