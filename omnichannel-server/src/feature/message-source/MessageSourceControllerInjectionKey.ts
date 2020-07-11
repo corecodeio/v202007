@@ -1,10 +1,11 @@
-import { InjectionKey } from "./InjectionKey";
+import { InjectionKey, InjectionKeyScope } from "@corecodeio/libraries/di";
+import { MessageSourceController } from "./controller/MessageSourceController";
 
 export const MessageSourceControllerInjectionKey: InjectionKey<MessageSourceController> = {
   name: "MessageSourceControllerInjectionKey",
-  scope: "singleton",
+  scope: InjectionKeyScope.singlenton,
   closure: (dependencies) => {
-    const MessageSourceController = new MessageSourceController();
-    return MessageSourceController;
+    const messageSourceController = new MessageSourceController();
+    return messageSourceController;
   },
 };
