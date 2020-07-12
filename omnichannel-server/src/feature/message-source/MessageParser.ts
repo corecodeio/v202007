@@ -31,6 +31,28 @@ export const MessageParser = body => {
     
 }
 
+export const ResponseMessage = (message:MessagePayload) => {
+
+    if(message.messageProvider === 'bidr'){
+        const MessageBody:MessageBirdPayload = {
+            contactPhoneNumber: message.from,
+            payload:message.message,
+            currentTime: message.currentTime,
+        };
+
+        return MessageBody;
+    } else if(message.messageProvider === 'twilio'){
+        const MessageBody:MessageTwilioPayload = {
+            Number: message.from,
+            Message:message.message,
+            Time: message.currentTime,
+        };
+
+        return MessageBody;
+    }
+
+}
+
 const isBird = (message:MessageBirdPayload) => {
     return message.contactPhoneNumber !== undefined;
 }
