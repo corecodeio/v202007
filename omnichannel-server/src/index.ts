@@ -1,22 +1,19 @@
 import { Dependencies } from "@corecodeio/libraries/di";
 import { Request, Response } from "express";
-import { MessagePayload } from "./feature/message-source/interfaces/MessagePayload";
 import { MessageSourceControllerInjectionKey } from "./feature/message-source/MessageSourceControllerInjectionKey";
 import server from "./server";
+import { MessageParser } from "./feature/message-source/MessageParser";
 
 const dependencies = new Dependencies();
 
 server.post("/message-source", async (req: Request, res: Response) => {
-  const MessageSourceController = dependencies.provide(
+  const messageSourceController = dependencies.provide(
     MessageSourceControllerInjectionKey
   );
 
-  const payload: MessagePayload = {
-    message: "",
-    currentTime: new Date(),
-    from: "",
-  };
+   const messageParser = MessageParser(req.body)
 
+    
   // recibir la solicitud (payload de twilio o messagebird MessageSourceProvider)
 
   // estandarizar la solicitud (MessageSource{Digest|Parser} || MessageFormatter)
