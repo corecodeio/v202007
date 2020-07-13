@@ -6,13 +6,10 @@ import { MessageParser } from "./feature/message-source/MessageParser";
 
 const dependencies = new Dependencies();
 
-server.post("/message-source", async (req: Request, res: Response) => {
+server.post("/message-source", MessageParser, async (req: Request, res: Response) => {
   const messageSourceController = dependencies.provide(
     MessageSourceControllerInjectionKey
   );
-
-   const messageParser = MessageParser(req.body)
-
     
   // recibir la solicitud (payload de twilio o messagebird MessageSourceProvider)
 

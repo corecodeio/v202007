@@ -2,7 +2,7 @@ import { MessageBirdPayload } from "./interfaces/MessageBirdPayload";
 import { MessageTwilioPayload } from "./interfaces/MessageTwilioPayload";
 import { MessagePayload } from "./interfaces/MessagePayload";
 
-export const MessageParser = body => {
+export const MessageParser = ({body}) => {
     const messageBody = <MessageBirdPayload|MessageTwilioPayload>body;
 
     if(isBird(<MessageBirdPayload>messageBody)) {
