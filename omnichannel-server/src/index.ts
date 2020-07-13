@@ -2,11 +2,10 @@ import { Dependencies } from "@corecodeio/libraries/di";
 import { Request, Response } from "express";
 import { MessageSourceControllerInjectionKey } from "./feature/message-source/MessageSourceControllerInjectionKey";
 import server from "./server";
-import { MessageParser } from "./feature/message-source/MessageParser";
 
 const dependencies = new Dependencies();
 
-server.post("/message-source", MessageParser, async (req: Request, res: Response) => {
+server.post("/message-source", async (req: Request, res: Response) => {
   const messageSourceController = dependencies.provide(
     MessageSourceControllerInjectionKey
   );
