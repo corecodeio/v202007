@@ -1,4 +1,4 @@
-export interface messageBirdPayload {
+export interface MessageBirdPayload {
   contactPhoneNumber: string;
   currentTime: Date;
   payload: string;
