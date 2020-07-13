@@ -6,7 +6,7 @@ import { MessageProvider } from "./interfaces/MessageProvider";
 export class MessageParser {
 
 messageSource(req: Request, res: Response):Promise<Response>{
-  const payload = this.messageParser(req)
+  const payload = this.parse(req.body)
 
   return res.json({ status: "success" })
 }
