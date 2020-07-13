@@ -3,10 +3,18 @@ import { MessageTwilioPayload } from "./interfaces/MessageTwilioPayload";
 import { MessagePayload } from "./interfaces/MessagePayload";
 import { MessageProvider } from "./interfaces/MessageProvider";
 
-export const MessageParser = ({ body }) => {
+export class MessageParser {
+
+messageSource(req: Request, res: Response):Promise<Response>{
+  const payload = this.messageParser(req)
+
+  return res.json({ status: "success" })
+}
+
+messageParser = ({ body }) => {
   const messageBody = <MessageBirdPayload | MessageTwilioPayload>body;
 
-  if (isBird(<MessageBirdPayload>messageBody)) {
+  if (this.isBird(<MessageBirdPayload>messageBody)) {
     const MessageBody: MessagePayload = {
       from: (<MessageBirdPayload>messageBody).contactPhoneNumber,
       message: (<MessageBirdPayload>messageBody).payload,
@@ -15,7 +23,7 @@ export const MessageParser = ({ body }) => {
     };
 
     return MessageBody;
-  } else if (isTwilio(<MessageTwilioPayload>messageBody)) {
+  } else if (this.isTwilio(<MessageTwilioPayload>messageBody)) {
     const MessageBody: MessagePayload = {
       from: (<MessageTwilioPayload>messageBody).Number,
       message: (<MessageTwilioPayload>messageBody).Message,
@@ -27,7 +35,7 @@ export const MessageParser = ({ body }) => {
   }
 };
 
-export const ResponseMessage = (message: MessagePayload) => {
+responseMessage = (message: MessagePayload) => {
   if (message.messageProvider === MessageProvider.messageBird) {
     const MessageBody: MessageBirdPayload = {
       contactPhoneNumber: message.from,
@@ -47,10 +55,12 @@ export const ResponseMessage = (message: MessagePayload) => {
   }
 };
 
-const isBird = (message: MessageBirdPayload) => {
+private isBird = (message: MessageBirdPayload) => {
   return message.contactPhoneNumber !== undefined;
 };
 
-const isTwilio = (message: MessageTwilioPayload) => {
+private isTwilio = (message: MessageTwilioPayload) => {
   return message.Number !== undefined;
 };
+
+}
