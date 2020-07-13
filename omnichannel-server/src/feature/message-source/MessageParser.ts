@@ -11,7 +11,7 @@ messageSource(req: Request, res: Response):Promise<Response>{
   return res.json({ status: "success" })
 }
 
-messageParser = ({ body }) => {
+parseRequestBody = (body) => {
   const messageBody = <MessageBirdPayload | MessageTwilioPayload>body;
 
   if (this.isBird(<MessageBirdPayload>messageBody)) {
