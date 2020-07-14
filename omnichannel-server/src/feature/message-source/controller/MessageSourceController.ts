@@ -1,19 +1,38 @@
 import { Request, Response } from "express";
 import { IMessagePayload } from "../interfaces/IMessagePayload";
+import { MessageSourceDigest } from "../util/MessageSourceDigest";
 
 export class MessageSourceController {
+  private messageSourceDigest: MessageSourceDigest;
 
-    private message: IMessagePayload[] = [];
+  constructor(messageSourceDigest: MessageSourceDigest) {
+    this.messageSourceDigest = messageSourceDigest;
+  }
 
-    // constructor(messagePayload: MessagePayload){
-    //     this.message.push(messagePayload)
-    // }
+  messageSource(req: Request, res: Response) {
+    // recibir la solicitud (payload de twilio o messagebird MessageSourceProvider)
 
-    messageSource(req: Request, res: Response) {
+    // estandarizar la solicitud (MessageSource{Digest|Parser} || MessageFormatter)
+    const payload: IMessagePayload = this.messageSourceDigest.parseRequestBody(
+      req.body
+    );
 
+    payload.currentTime;
+    payload.message;
+    payload.from;
 
-        return res.status(200);
-    }
-    
+    // TDD - Test Driven Development
+    // Pruebas unitarias Unit tests - jest, mocha, chai
+    // Prueba integrales Integration Tests - jest, mocha, chai
+    // E2E End to end cypress.io
 
+    // guardar la metadata del mensaje en una base de datos ??
+
+    // notificar a maría (native client) que recibió un mensaje
+
+    // PostRequestServer, MVC, MessageFormatter, MessageController
+    // Dependency Injection
+
+    return res.status(200);
+  }
 }
