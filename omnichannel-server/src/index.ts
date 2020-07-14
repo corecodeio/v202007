@@ -1,14 +1,16 @@
 import { Dependencies } from "@corecodeio/libraries/di";
-import { Request, Response } from "express";
-import { MessageSourceControllerInjectionKey } from "./feature/message-source/MessageSourceControllerInjectionKey";
+import { MessageSourceControllerInjectionKey } from "./feature/message-source/InjectionKeys";
 import server from "./server";
+import { MessageSourceController } from "./feature/message-source/controller/MessageSourceController";
 
 const dependencies = new Dependencies();
+const messageSourceController = dependencies.provide<MessageSourceController>(
+  MessageSourceControllerInjectionKey
+);
 
-server.post("/message-source", async (req: Request, res: Response) => {
-  const messageSourceController = dependencies.provide(
-    MessageSourceControllerInjectionKey
-  );
+server.post("/message-source", messageSourceController.messageSource)
+  // server.post("/message-source", async (req: Request, res: Response) => {
+  
     
   // recibir la solicitud (payload de twilio o messagebird MessageSourceProvider)
 
@@ -19,8 +21,8 @@ server.post("/message-source", async (req: Request, res: Response) => {
   // PostRequestServer, MVC, MessageFormatter, MessageController
   // Dependency Injection
 
-  return res.status(200);
-});
+//   return res.status(200);
+// });
 
 server.listen("8001", () => {
   console.log("listening");

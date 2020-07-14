@@ -1,4 +1,4 @@
-export interface MessagePayload {
+export interface IMessagePayload {
   uid?: string;
   message: string;
   currentTime: Date;

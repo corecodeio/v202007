@@ -1,15 +1,18 @@
-import { MessagePayload } from "../interfaces/MessagePayload";
+import { Request, Response } from "express";
+import { IMessagePayload } from "../interfaces/IMessagePayload";
 
 export class MessageSourceController {
 
-    private message: MessagePayload[] = [];
+    private message: IMessagePayload[] = [];
 
-    constructor(messagePayload: MessagePayload){
-        this.message.push(messagePayload)
-    }
+    // constructor(messagePayload: MessagePayload){
+    //     this.message.push(messagePayload)
+    // }
 
-    public getMessages(){
-        return this.message
+    messageSource(req: Request, res: Response) {
+
+
+        return res.status(200);
     }
     
 
