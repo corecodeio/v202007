@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 import { IMessagePayload } from "../interfaces/IMessagePayload";
-import { MessageSourceDigest } from "../util/MessageSourceDigest";
+import { MessageParser } from "../util/MessageParser";
 
 export class MessageSourceController {
-  private messageSourceDigest: MessageSourceDigest;
+  private messageSourceDigest: MessageParser;
 
-  constructor(messageSourceDigest: MessageSourceDigest) {
+  constructor(messageSourceDigest: MessageParser) {
     this.messageSourceDigest = messageSourceDigest;
   }
 

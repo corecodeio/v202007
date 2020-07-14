@@ -1,27 +1,27 @@
 import { InjectionKey, InjectionKeyScope } from "@corecodeio/libraries/di";
 import { MessageSourceController } from "./controller/MessageSourceController";
-import { MessageSourceDigest } from "./util/MessageSourceDigest";
+import { MessageParser } from "./util/MessageParser";
 
 export const MessageSourceControllerInjectionKey: InjectionKey<MessageSourceController> = {
   name: "MessageSourceControllerInjectionKey",
   scope: InjectionKeyScope.singleton,
   closure: (dependencies) => {
-    const messageSourceDigest = dependencies.provide(
-      MessageSourceDigestInjectionKey
+    const messageParser = dependencies.provide(
+      MessageParserInjectionKey
     );
     const messageSourceController = new MessageSourceController(
-      messageSourceDigest
+      messageParser
     );
 
     return messageSourceController;
   },
 };
 
-export const MessageSourceDigestInjectionKey: InjectionKey<MessageSourceDigest> = {
-  name: "MessageSourceDigestInjectionKey",
+export const MessageParserInjectionKey: InjectionKey<MessageParser> = {
+  name: "MessageParserInjectionKey",
   scope: InjectionKeyScope.singleton,
   closure: (dependencies) => {
-    const messageSourceController = new MessageSourceDigest();
+    const messageSourceController = new MessageParser();
     return messageSourceController;
   },
 };
