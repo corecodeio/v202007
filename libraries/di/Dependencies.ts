@@ -2,7 +2,7 @@ import { IDependencies } from "./IDependencies";
 import { InjectionKey } from "./InjectionKey";
 import { InjectionKeyScope } from "./InjectionKeyScope";
 
-class Dependencies implements IDependencies {
+export class Dependencies implements IDependencies {
   protected cache = new Map<string, any>();
 
   provide<T>(injectionKey: InjectionKey<T>) {
@@ -28,5 +28,3 @@ class Dependencies implements IDependencies {
   }
 }
 
-export { Dependencies };
-export default Dependencies;
