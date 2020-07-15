@@ -2,11 +2,7 @@ import { IDependencies } from "./IDependencies";
 import { InjectionKey } from "./InjectionKey";
 import { InjectionKeyScope } from "./InjectionKeyScope";
 
-<<<<<<< HEAD
-export class Dependencies implements IDependencies {
-=======
 class Dependencies implements IDependencies {
->>>>>>> gus/omnichannel-server
   protected cache = new Map<string, any>();
 
   provide<T>(injectionKey: InjectionKey<T>) {
