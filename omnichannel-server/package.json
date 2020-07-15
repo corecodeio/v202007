@@ -1,4 +1,7 @@
 {
+	"scripts": {
+		"start:debug": "ts-node-dev --inspect=9230 --no-notify --respawn ./src"
+	},
 	"dependencies": {
 		"express": "^4.17.1",
 		"@corecodeio/libraries": "*"
