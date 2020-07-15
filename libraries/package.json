@@ -7,5 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "netpoe",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/supertest": "^2.0.10",
+    "supertest": "^4.0.2"
+  }
 }

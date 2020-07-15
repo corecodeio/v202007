@@ -25,7 +25,7 @@ describe("MessageSourceDigest", () => {
       currentTime: new Date(currentTime),
       from,
     };
-    
+
     expect(messageSourceDigest.parseRequestBody(messageBirdPayload)).toEqual(
       payload
     );

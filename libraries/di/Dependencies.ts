@@ -28,8 +28,5 @@ class Dependencies implements IDependencies {
   }
 }
 
-<<<<<<< HEAD
-=======
 export { Dependencies };
 export default Dependencies;
->>>>>>> gus/omnichannel-server
