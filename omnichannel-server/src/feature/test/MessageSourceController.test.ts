@@ -1,7 +1,6 @@
 import { Dependencies } from "@corecodeio/libraries/di";
 import { MessageSourceControllerInjectionKey } from "../message-source/InjectionKeys";
 import { IMessageBirdPayload } from "../message-source/interfaces/IMessageBirdPayload";
-import { IMessagePayload } from "../message-source/interfaces/IMessagePayload";
 import server from '../../server';
 import request from 'supertest'
 
