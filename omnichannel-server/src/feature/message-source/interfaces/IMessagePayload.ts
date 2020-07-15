@@ -3,5 +3,5 @@ export interface IMessagePayload {
   message: string;
   currentTime: Date;
   from: string;
-  messageProvider: string;
+  messageProvider?: string;
 }
