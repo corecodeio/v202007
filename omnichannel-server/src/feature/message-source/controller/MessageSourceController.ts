@@ -32,6 +32,6 @@ export class MessageSourceController {
 
     // PostRequestServer, MVC, MessageFormatter, MessageController
     // Dependency Injection
-    res.status(200).json({ status: "success" });
+    return res.status(200);
   }
 }
