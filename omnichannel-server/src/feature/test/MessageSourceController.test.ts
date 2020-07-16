@@ -26,8 +26,7 @@ describe("MessageSourceController", () => {
     };
 
     const res = await request(server).post("/message-source").send(body);
-    const status = res.status;
-    expect(status).toBe(500);
+    expect(res.status).toBe(500);
     done();
   });
 });
