@@ -25,9 +25,17 @@ describe("MessageSourceDigest", () => {
       currentTime: new Date(currentTime),
       from,
     };
-    
+
     expect(messageSourceDigest.parseRequestBody(messageBirdPayload)).toEqual(
       payload
     );
+  });
+
+  test("Should return undefined", () => {
+    const unknowPayload: any = {
+      payload: "Any other payload",
+    };
+
+    expect(messageSourceDigest.parseRequestBody(unknowPayload)).toBeUndefined();
   });
 });
