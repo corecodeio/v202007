@@ -10,7 +10,7 @@ const messageSourceDigest = dependencies.provide(
 
 describe("MessageSourceDigest", () => {
   test("Should return the parsed payload of the request body", () => {
-    const currentTime = "2020-07-14T02:28:51.11316996Z";
+    const currentTime = new Date();
     const message = "Hello World Tests";
     const from = "+123456789";
 

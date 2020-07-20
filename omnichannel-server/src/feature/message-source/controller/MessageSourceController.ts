@@ -17,9 +17,9 @@ export class MessageSourceController {
       req.body
     );
 
-    payload.currentTime;
-    payload.message;
-    payload.from;
+    // payload.currentTime;
+    // payload.message;
+    // payload.from;
 
     // TDD - Test Driven Development
     // Pruebas unitarias Unit tests - jest, mocha, chai
@@ -32,6 +32,6 @@ export class MessageSourceController {
 
     // PostRequestServer, MVC, MessageFormatter, MessageController
     // Dependency Injection
-    return res.status(200);
+    res.status(200).json({ status: "success" });
   }
 }
