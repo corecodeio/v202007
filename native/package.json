@@ -1,5 +1,8 @@
 {
+<<<<<<< HEAD
   "name": "native",
+=======
+>>>>>>> 8ad144cac7c0d5fd5229c5b9692afa149d32a58f
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
@@ -23,4 +26,8 @@
     "typescript": "~3.9.5"
   },
   "private": true
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 8ad144cac7c0d5fd5229c5b9692afa149d32a58f
