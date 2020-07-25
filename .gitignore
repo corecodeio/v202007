@@ -1,3 +1,7 @@
 .env
 node_modules
 .vscode
+native/yarn-error.log
+native/yarn.lock
+native/package.json
+native/package-lock.json

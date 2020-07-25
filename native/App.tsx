@@ -5,33 +5,33 @@ import { StyleSheet, Text, TextInput, View } from "react-native";
 
 const Stack = createStackNavigator();
 
-function OnboardingCompleted() {
+const OnboardingCompleted: React.FC<{}> = () => {
 	return (
 		<View>
 			<Text>Great! Now try to connect. Enjoy!</Text>
 		</View>
 	);
-}
+};
 
-function OnboardingStoreConnection() {
+const OnboardingStoreConnection: React.FC<{}> = () => {
 	return (
 		<View>
 			<Text>Now connect to your store</Text>
 			<TextInput></TextInput>
 		</View>
 	);
-}
+};
 
-function OnboardingPhoneVerification() {
+const OnboardingPhoneVerification: React.FC<{}> = () => {
 	return (
 		<View>
 			<Text>Insert verification code</Text>
 			<TextInput></TextInput>
 		</View>
 	);
-}
+};
 
-function OnboardingWelcome() {
+const OnboardingWelcome: React.FC<{}> = () => {
 	return (
 		<View>
 			<Text>Welcome! Input your whatsapp number</Text>
@@ -42,9 +42,9 @@ function OnboardingWelcome() {
       />*/}
 		</View>
 	);
-}
+};
 
-export default function App() {
+const App: React.FC<{}> = () => {
 	return (
 		<NavigationContainer>
 			<Stack.Navigator>
@@ -64,7 +64,9 @@ export default function App() {
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
-}
+};
+
+export default App;
 
 const styles = StyleSheet.create({
 	container: {
