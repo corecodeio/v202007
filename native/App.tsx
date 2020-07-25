@@ -1,15 +1,18 @@
-import { StatusBar } from "expo-status-bar";
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
 
-export default function App() {
+import React from 'react';
+import { StyleSheet, Text, View } from "react-native";
+import { NavigationContainer } from '@react-navigation/native'
+import { OnboardingNavigation } from './src/onboarding/OnBoardingNavigation'
+
+
+export const App: React.FC<{}> = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <OnboardingNavigation></OnboardingNavigation>
+    </NavigationContainer>
   );
 }
+export default App;
 
 const styles = StyleSheet.create({
   container: {
