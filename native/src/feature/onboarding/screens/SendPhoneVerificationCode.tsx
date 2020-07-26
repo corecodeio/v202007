@@ -1,10 +1,7 @@
 import React from "react";
 import { View, Text, Button } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 
-export const SendPhoneVerificationCode: React.FC = () => {
-  const navigation = useNavigation();
-
+export const SendPhoneVerificationCode: React.FC = ({ navigation }) => {
   return (
     <View>
       <Text>SendPhoneVerificationCode</Text>

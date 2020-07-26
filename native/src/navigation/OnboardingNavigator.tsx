@@ -4,17 +4,14 @@ import { OnboardingStackParamList } from "./types/types";
 import SendPhoneVerificationCode from "../feature/onboarding/screens/SendPhoneVerificationCode";
 import CheckCode from "../feature/onboarding/screens/CheckCode";
 
-const OnboardingStack = createStackNavigator<OnboardingStackParamList>();
+const { Navigator, Screen } = createStackNavigator<OnboardingStackParamList>();
 
 const OnboardingNavigator = () => {
   return (
-    <OnboardingStack.Navigator>
-      <OnboardingStack.Screen
-        name="SendCode"
-        component={SendPhoneVerificationCode}
-      />
-      <OnboardingStack.Screen name="CheckCode" component={CheckCode} />
-    </OnboardingStack.Navigator>
+    <Navigator>
+      <Screen name="SendCode" component={SendPhoneVerificationCode} />
+      <Screen name="CheckCode" component={CheckCode} />
+    </Navigator>
   );
 };
 
