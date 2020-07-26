@@ -1,6 +1,5 @@
 .env
 node_modules
 .vscode
-native/yarn.lock
-native/package.json
+
 native/package-lock.json
