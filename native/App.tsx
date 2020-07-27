@@ -1,25 +1,13 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { OnboardingCompleted } from "./src/feature/screens/OnboardingCompleted";
 import { OnboardingPhoneVerification } from "./src/feature/screens/OnboardingPhoneVerification";
 import { OnboardingStoreConnection } from "./src/feature/screens/OnboardingStoreConnection";
+import { OnboardingWelcome } from "./src/feature/screens/OnboardingWelcome";
 
 const Stack = createStackNavigator();
-
-const OnboardingWelcome: React.FC<{}> = () => {
-	return (
-		<View>
-			<Text>Welcome! Input your whatsapp number</Text>
-			<TextInput></TextInput>
-			{/*<Button
-				title="Get Started"
-				onPress={() => navigation.navigate("OnboardingPhoneVerification")}
-      />*/}
-		</View>
-	);
-};
 
 const App: React.FC<{}> = () => {
 	return (
