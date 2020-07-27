@@ -1,10 +1,13 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import Router from "./src/router/Router";
+import OnboardingNavigator from "./src/navigation/navigator/OnboardingNavigator";
+import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
   return (
-    <Router />
+    <NavigationContainer>
+      <OnboardingNavigator />
+    </NavigationContainer>
   );
 }
 
