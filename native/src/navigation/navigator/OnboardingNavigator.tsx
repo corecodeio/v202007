@@ -1,5 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import React from "react";
 import { OnboardingCompleted } from "../../feature/screens/OnboardingCompleted";
 import { OnboardingPhoneVerification } from "../../feature/screens/OnboardingPhoneVerification";
 import { OnboardingStoreConnection } from "../../feature/screens/OnboardingStoreConnection";

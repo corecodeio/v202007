@@ -1,3 +1,4 @@
+import React from "react";
 import { Text, TextInput, View } from "react-native";
 
 export const OnboardingStoreConnection: React.FC<{}> = () => {
