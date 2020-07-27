@@ -3,18 +3,10 @@ import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import { OnboardingCompleted } from "./src/feature/screens/OnboardingCompleted";
+import { OnboardingPhoneVerification } from "./src/feature/screens/OnboardingPhoneVerification";
 import { OnboardingStoreConnection } from "./src/feature/screens/OnboardingStoreConnection";
 
 const Stack = createStackNavigator();
-
-const OnboardingPhoneVerification: React.FC<{}> = () => {
-	return (
-		<View>
-			<Text>Insert verification code</Text>
-			<TextInput></TextInput>
-		</View>
-	);
-};
 
 const OnboardingWelcome: React.FC<{}> = () => {
 	return (
