@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "start:debug": "ts-node-dev --inspect=9230 --no-notify --respawn ./src"
+  },
+  "dependencies": {
+    "@corecodeio/libraries": "*",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.4",
+    "axios": "^0.19.2",
+    "jest": "^26.1.0",
+    "ts-jest": "^26.1.2",
+    "ts-node-dev": "^1.0.0-pre.50",
+    "typescript": "^3.9.6"
+  }
+}
