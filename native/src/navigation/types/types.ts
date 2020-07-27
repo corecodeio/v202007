@@ -1,4 +1,4 @@
 export type OnboardingStackParamList = {
-  SendCode: undefined;
-  CheckCode: undefined;
+  SendPhoneNumberVerificationCode: undefined;
+  VerifyPhoneNumberCode: undefined;
 };
