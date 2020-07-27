@@ -6,13 +6,11 @@ import CheckCode from "../feature/onboarding/screens/CheckCode";
 
 const { Navigator, Screen } = createStackNavigator<OnboardingStackParamList>();
 
-const OnboardingNavigator = () => {
-  return (
-    <Navigator>
-      <Screen name="SendCode" component={SendPhoneVerificationCode} />
-      <Screen name="CheckCode" component={CheckCode} />
-    </Navigator>
-  );
-};
+const OnboardingNavigator = () => (
+  <Navigator>
+    <Screen name="SendCode" component={SendPhoneVerificationCode} />
+    <Screen name="CheckCode" component={CheckCode} />
+  </Navigator>
+);
 
 export default OnboardingNavigator;
