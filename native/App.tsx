@@ -2,16 +2,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
+import { OnboardingCompleted } from "../native/src/feature/screens/OnboardingCompleted";
 
 const Stack = createStackNavigator();
-
-const OnboardingCompleted: React.FC<{}> = () => {
-	return (
-		<View>
-			<Text>Great! Now try to connect. Enjoy!</Text>
-		</View>
-	);
-};
 
 const OnboardingStoreConnection: React.FC<{}> = () => {
 	return (
