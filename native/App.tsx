@@ -1,13 +1,13 @@
 import React from "react";
-import { SafeAreaView } from "react-native";
-import { StatusBar } from "expo-status-bar";
-import { Navigation } from "./src/navigation";
+import { NavigationContainer } from "@react-navigation/native";
+import OnboardingNavigator from "./src/navigation/navigator/OnboardingNavigator";
 
-export default function App() {
+export const App: React.FC<{}> = () => {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <Navigation />
-      <StatusBar style="auto" />
-    </SafeAreaView>
+    <NavigationContainer>
+      <OnboardingNavigator />
+    </NavigationContainer>
   );
-}
+};
+
+export default App;
