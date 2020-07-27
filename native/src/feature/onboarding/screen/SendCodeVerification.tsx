@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View, TextInput } from "react-native";
-import { MainActionButton } from "../../../common/components/Button";
+import { MainActionButton } from "../../../common/components/MainActionButton";
 
 export const SendCodeVerification: React.FC = () => {
   return (
