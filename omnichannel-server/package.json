@@ -1,4 +1,5 @@
 {
+  "name": "@corecodeio/omnichannel-server",
   "scripts": {
     "start:debug": "ts-node-dev --inspect=9230 --no-notify --respawn ./src"
   },
