@@ -5,7 +5,9 @@
     "start:debug": "ts-node-dev --inspect=9230 --no-notify --respawn ./src"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "@corecodeio/libraries": "^1.0.1",
+    "express": "^4.17.1",
+    "graphql-yoga": "^1.18.3"
   },
   "devDependencies": {
     "@types/jest": "^26.0.4",
@@ -13,5 +15,7 @@
     "ts-jest": "^26.1.2",
     "ts-node-dev": "^1.0.0-pre.50",
     "typescript": "^3.9.6"
-  }
+  },
+  "main": "index.js",
+  "license": "MIT"
 }
