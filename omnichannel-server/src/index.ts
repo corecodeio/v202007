@@ -1,5 +1,6 @@
 import server from "./server";
 
-server.listen("8001", () => {
-  console.log("listening");
-});
+server.start(
+  { port: 8001, endpoint: "/graphql", playground: "/playground" },
+  () => console.log("Listening")
+);
