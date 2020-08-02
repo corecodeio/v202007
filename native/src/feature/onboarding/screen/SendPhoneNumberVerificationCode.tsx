@@ -24,7 +24,7 @@ export const SendPhoneNumberVerificationCode: React.FC<{}> = () => {
   };
 
   if (loading) return <Text>Loading...</Text>;
-  else if (data) return <Text>{data.getNotificationOfReceived}</Text>;
+  else if (data) return <Text>{data.status}</Text>;
   return (
     <View container flex={1} justifyContent="center" bg="white">
       <PrimaryButton mb={4} onPress={onSendPhoneNumberVerificationCode}>
