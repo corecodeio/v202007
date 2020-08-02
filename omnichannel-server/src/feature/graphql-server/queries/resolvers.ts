@@ -1,6 +1,6 @@
 export const resolvers = {
   Query: {
-    getNotificationOfReceived: () => `Phone Number Received`,
+    status: () => `Phone Number Received`,
   },
 };
 
