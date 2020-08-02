@@ -1,6 +1,6 @@
 export const typeDefs = `
   type Query {
-    getNotificationOfReceived: String!
+    status: String!
   }
 `;
 
