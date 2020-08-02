@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Text } from "react-native";
 import { View } from "../../../common/component/view";
 import { PrimaryButton } from "../../../common/component/button";
@@ -9,7 +9,6 @@ import { OnboardingInjectionKey } from "../InjectionKey";
 export const SendPhoneNumberVerificationCode: React.FC<{}> = () => {
   const dependencies = React.useContext(DependencyContext);
   const onboarding = dependencies.provide(OnboardingInjectionKey);
-  const [status, setStatus] = useState("...");
 
   let [
     getQueryResult,
@@ -25,14 +24,12 @@ export const SendPhoneNumberVerificationCode: React.FC<{}> = () => {
   };
 
   if (loading) return <Text>Loading...</Text>;
-  else if (data && data.getNotificationOfReceived)
-    setStatus(data.getNotificationOfReceived);
+  else if (data) return <Text>{data.getNotificationOfReceived}</Text>;
   return (
     <View container flex={1} justifyContent="center" bg="white">
       <PrimaryButton mb={4} onPress={onSendPhoneNumberVerificationCode}>
         Send Phone Number
       </PrimaryButton>
-      <Text>{status}</Text>
     </View>
   );
 };
