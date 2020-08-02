@@ -1,8 +1,9 @@
 import React from "react";
+import { useLazyQuery, DocumentNode } from "@apollo/client";
 
 export class Onboarding {
-  useSendPhoneNumberVerificationCode() {
-    const state = React.useState(0);
-    return state;
+  useSendPhoneNumberVerificationCode(query: DocumentNode) {
+    const queryHandler = useLazyQuery(query);
+    return queryHandler;
   }
 }
