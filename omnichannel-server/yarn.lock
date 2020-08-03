@@ -305,10 +305,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@corecodeio/libraries@1.0.0":
-  version "1.0.0"
-  resolved "https://npm.pkg.github.com/download/@corecodeio/libraries/1.0.0/d1ab60a3d46e634e354995936a94a8d8f25240ee1ca724ea70b3780cbd8a2c97#78ea26cbfa7e7a43354ad41c62a04b74bb42c796"
-  integrity sha512-vseGkA/SuIZtfDwMw0GWUAhq/SCXCYVomdjS0zYjWTpqdxlkYLWplj12Ag/DcALOMy6G+3TcY3KaZgCiw84yNQ==
+"@corecodeio/libraries@1.0.1":
+  version "1.0.1"
+  resolved "https://npm.pkg.github.com/download/@corecodeio/libraries/1.0.1/b3b3d422cac6fab9ec91766193042652f8589f011cbcfc71c2e4ac6c409c72fb#2a68ec62daf50e8d8800f592ee647c2b7a6e2f4c"
+  integrity sha512-MJfo/MN3pVT/c7EHQSaHDF22QxeCKNlmcitbvLSCG2UiVaHxxIoEZhUBis3iz9S8N3Qiie63LasV/T+B4Sy3kA==
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
