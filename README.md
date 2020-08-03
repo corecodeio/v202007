@@ -19,7 +19,6 @@ Cuando el cliente ha elegido lo que desea ordenar, María envía una respuesta p
 ```
 Gracias por comprar nuestras hamburguesas.
 Por favor, indica la siguiente información para completar tu orden:
-
 - Nombre de quien recibe
 - Productos que ordena
 - NIT para factura
@@ -47,7 +46,6 @@ María inicia el siguiente protocolo:
 ```
 Hemos recibido tu orden.
 El total es de Q259.00, a contra entrega
-
 Tu pedido llegará a tu puerta alrededor de las 12:30
 Que disfrutes tu hamburguesa!
 ```
@@ -64,47 +62,85 @@ En ocasiones, María ha enviado órdenes incompletas o equivocadas.
 
 Así como María, cientos de otros operadores de negocios se encuentran en la misma situación, intentando adaptarse a la alta demanda de sus productos y servicios por canales de mensajería, llegando a un límite de su eficiencia y control.
 
-Por lo tanto, se propone gestionar los mensajes mediante la API (siglas de '_Application Programming Interface_') de Whatsapp Business, ya que la misma nos permite crear una interacción con usuarios mediante una [plantilla de mensajes](https://developers.facebook.com/docs/whatsapp/message-templates) almacenados en una base de datos, también se puede crear una plantilla de mensajes multimedia que serán de utilidad para la mejor interacción con los usuarios.
+### Glosario de términos
 
-Esta información puede ser enviada mediante una API personalizada a un servicio que será manipulado y maquetado para que María tenga una interfaz agradable, puede ver los pedidos en un orden cronológico con forme van llegando para que no exista un descontrol en cada pedido.
+#### Usuario Final
 
-En la interfaz gráfica se dividirá en varias vistas 
-- La vista de pedidos donde se confirmará el pedido ahí se mostrará todo lo que el cliente solicito y se trabajara con esa información al completar la orden se marcará como pedido completado, automáticamente hará desaparezca de la pantalla de pedidos y así estos pedidos van siendo almacenados en otra vista de pedidos en estado de entrega.
-- La vista de pedidos enviados mostrara la información de donde se encuentra el pedido actualmente para que María vea e informe al cliente el estado de su pedido si este lo solicita, cliente o el repartidor confirma que el pedido ha sido entregado correctamente, esto cambiara el estado del pedido de en camino a entregado, automáticamente se procede a hacer el cobro del pedido enviado.
-- La vista de clientes satisfechos para los que envían un feedback o recomendación del servicio, esta información puede ser mostrada en un espacio público del sitio de María.
-- La vista pública del sitio de María donde se puede mostrar la información de los platillos que ofrece y los feedbacks de los clientes que han utilizado el servicio, también enlaces a las redes sociales y como enviar pedidos por medio de Whatsapp.
-- La vista para usuarios bloqueados que solo envían mensajes de bromas o que por alguna razón solicitan pedidos que no piensan pagar.
+Persona que administra el catálogo de productos, crea órdenes de compra y se comunica con sus clientes.
 
-Esta información tiene que ser almacenada para poder generar un historial de pedidos y en el que María tenga un inventario de cuanto ha vendido en cada día y poder ofreciendo un mejor servicio a sus clientes.
+#### Emisor
 
-En el backend de la aplicación se manipulará la información recibida por el api de Whatsapp y se enviara a la aplicación cliente de María, se recibirán las acciones realizadas y se le enviara respuesta mediante el api de Whatsapp al usuario, esta app será la encargada de servir como intermediario entre el api y la aplicación cliente.
+Inicia una conversación con el Usuario Final a través de Whatsapp for Business
+
+### Propuesta
+
+#### Creación y actualización de órdenes de compra
+
+María, de ahora en adelante: el _usuario_; tendrá acceso a una aplicación móvil que le permita generar y actualizar órdenes de compra de manera inmediata, sólo con el dedo pulgar.
+
+##### Órdenes de compra con suscripción y selección de días de entrega
+
+El usuario y el cliente podrán seleccionar opciones de día y hora de entrega asignados por el usuario.
+
+##### Notificaciones de órdenes de compra
+
+El sistema notificará al usuario de nuevas órdenes de compra o de actualización del estatus de dichas órdenes.
+
+#### Envío de mensajes via whatsapp con formato de recibo / nota de venta
+
+La mayor ventaja de esta plataforma es que al crear una orden de compra, el usuario podrá enviar mensajes directamente por whatsapp con formato de recibo, con el precio unitario de cada artículo, la cantidad, el subtotal, los impuestos, costos de envío, descuentos y gran total.
+
+#### Gestión de inventario
+
+El usuario tendrá control de su inventario y el sistema descontará automáticamente las unidades de inventario consumidas.
+
+#### Catálogo y compra en línea
+
+Los clientes del usuario podrán ver los productos en un link https con el dominio de la empresa del usuario.
+
+Aunque este sistema, permite que el usuario genere las órdenes de compra sin que el cliente deba salir de whatsapp, es opcional para el cliente comprar a través del catálogo y el proceso de checkout.
+
+#### Gestión automática de nuevos clientes y clientes frecuentes
+
+Una característica innovadora de este sistema es que el usuario tendrá acceso a una lista de contactos ligados a su historial de compra. Lo que permitará al usuario conocer de antemano sus direcciones de entrega y sus datos personales.
 
 ## Tecnologías
 
-### Api de Whatsapp
-* [Api de Whatsapp Business](https://developers.facebook.com/docs/whatsapp)
-    - [Guías de la API de WhatsApp Business](https://developers.facebook.com/docs/whatsapp/guides) 
-    - [Registro](https://developers.facebook.com/docs/whatsapp/api/account)
-    - [WhatsApp Business API Installation](https://developers.facebook.com/docs/whatsapp/installation)
-        * [WhatsApp-Business-API-Setup-Scripts](https://github.com/WhatsApp/WhatsApp-Business-API-Setup-Scripts/tree/master/installation)
-    - [Plantillas de mensajes](https://developers.facebook.com/docs/whatsapp/message-templates)
-* [Docker Compose](https://docs.docker.com/compose/install/?fbclid=IwAR0iVXUx_wDZDNC2zV60ddMd-oSwdyXP4o8vGsiq5paS9b1od814o4SNGhs)
-* [MySQL](https://www.mysql.com/) o [Postgres](https://www.postgresql.org/)
+El sistema anterior requiere de la siguiente arquitectura:
 
-### Frontend y Backend
+### API / Backend
 
-* [React](https://es.reactjs.org/)
-* [Servidor Web linux](https://es.wikipedia.org/wiki/Servidor_web)
-* [NGINX](https://www.nginx.com/)
-* [Node.js](https://nodejs.org/es/)
-* [Socket.io](https://socket.io/)
+- Wordpress con Woocommerce plugin con JSON API Activado: https://woocommerce.github.io/woocommerce-rest-api-docs/
+- Twilio whatsapp api (sandbox), requiere aprobación del negocio: https://www.twilio.com/docs/whatsapp/api#sending-notifications
+- Express server sobre Node JS v12.16.0 o superior
 
+### Mobile App / Cliente frontend 1
+
+- React Native / Expo con expo-push-notifications: https://docs.expo.io/guides/push-notifications/
+
+### Web App / Cliente frontend 2
+
+- Wordpress con Woocommerce plugin
+
+### Base de datos
+
+- MySQL
+
+### Infraestructura
+
+- LAMP Stack en AWS ECS containers
 
 ## Tiempo de entrega
 
-Se estima un tiempo de entrega de 2 meses y medio
+3 meses a partir de la fecha del anticipo (50%), más 1 mes de correciones y mantenimiento.
+Los cambios posteriores a este periodo incurren en costos adicionales.
 
-![](img/gantt-chart.png)
+## Equipo de desarollo
+
+- 1 equipo de API / Backend (Woocommerce)
+- 1 equipo de API / Backend (twilio whatsapp)
+- 1 equipo de App Móvil (react native / expo)
+- 1 equipo de App Web (wordpress / woocommerce)
 
 ## Presupuesto
 
