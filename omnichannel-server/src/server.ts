@@ -4,6 +4,7 @@ import { MessageSourceController } from "./feature/message-source/controller/Mes
 import { MessageSourceControllerInjectionKey } from "./feature/message-source/InjectionKeys";
 
 import { GraphQL } from "./feature/graphql/graphql";
+import { TwilioSendSMS } from './feature/twilioSendSMS/twilioSendSMS';
 
 export const server = express();
 server.use(express.json());
@@ -19,5 +20,7 @@ server.post(
   "/message-source",
   messageSourceController.messageSource.bind(messageSourceController)
 );
+
+TwilioSendSMS();
 
 export default server;
