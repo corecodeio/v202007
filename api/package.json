@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "@corecodeio/libraries": "1.0.3",
+    "@types/convict": "^5.2.1",
     "apollo-server-express": "^2.16.1",
     "convict": "^6.0.0",
     "express": "^4.17.1",
