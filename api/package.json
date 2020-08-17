@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@corecodeio/libraries": "^1.0.5",
+    "@prisma/cli": "^2.4.1",
     "apollo-server-express": "^2.16.1",
     "convict": "^6.0.0",
     "express": "^4.17.1",
@@ -17,11 +18,13 @@
     "@graphql-codegen/typescript": "^1.17.7",
     "@graphql-codegen/typescript-resolvers": "^1.17.7",
     "@types/jest": "^26.0.4",
+    "@types/node": "^14.6.0",
     "apollo-server-testing": "^2.16.1",
     "jest": "^26.1.0",
     "supertest": "^4.0.2",
     "ts-jest": "^26.1.2",
+    "ts-node": "^8.10.2",
     "ts-node-dev": "^1.0.0-pre.50",
-    "typescript": "^3.9.6"
+    "typescript": "^3.9.7"
   }
 }
