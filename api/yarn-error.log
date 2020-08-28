@@ -1,56 +1,62 @@
 Arguments: 
-  /Users/svpervnder/.nvm/versions/node/v12.18.0/bin/node /Users/svpervnder/.nvm/versions/node/v12.18.0/bin/yarn install --mutex network:42424 --non-interactive
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add awesome-phonenumber
 
 PATH: 
-  /Users/svpervnder/.cvvd/corecodeio/v202007/app/api/node_modules/.bin:/Users/svpervnder/.cvvd/corecodeio/v202007/app/node_modules/.bin:/Users/svpervnder/.cvvd/corecodeio/v202007/node_modules/.bin:/Users/svpervnder/.cvvd/corecodeio/node_modules/.bin:/Users/svpervnder/.cvvd/node_modules/.bin:/Users/svpervnder/node_modules/.bin:/Users/node_modules/.bin:/node_modules/.bin:/Users/svpervnder/.nvm/versions/node/v12.18.0/bin:/Users/svpervnder/.nvm/versions/node/v12.18.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin
+  C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\danil\bin;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\nodejs;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\Yarn\bin;C:\Users\danil\AppData\Local\Microsoft\WindowsApps;C:\Users\danil\AppData\Roaming\npm;C:\Users\danil\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\danil\AppData\Local\Yarn\bin
 
 Yarn version: 
   1.22.4
 
 Node version: 
-  12.18.0
+  14.8.0
 
 Platform: 
-  darwin x64
+  win32 x64
 
 Trace: 
   Error: https://npm.pkg.github.com/@corecodeio%2fdatabase: npm package "database" does not exist under owner "corecodeio"
-      at Request.params.callback [as _callback] (/Users/svpervnder/.nvm/versions/node/v12.18.0/lib/node_modules/yarn/lib/cli.js:66987:18)
-      at Request.self.callback (/Users/svpervnder/.nvm/versions/node/v12.18.0/lib/node_modules/yarn/lib/cli.js:140748:22)
-      at Request.emit (events.js:315:20)
-      at Request.<anonymous> (/Users/svpervnder/.nvm/versions/node/v12.18.0/lib/node_modules/yarn/lib/cli.js:141720:10)
-      at Request.emit (events.js:315:20)
-      at IncomingMessage.<anonymous> (/Users/svpervnder/.nvm/versions/node/v12.18.0/lib/node_modules/yarn/lib/cli.js:141642:12)
-      at Object.onceWrapper (events.js:421:28)
-      at IncomingMessage.emit (events.js:327:22)
-      at endReadableNT (_stream_readable.js:1221:12)
-      at processTicksAndRejections (internal/process/task_queues.js:84:21)
+      at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:66096:18)
+      at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:140748:22)
+      at Request.emit (events.js:314:20)
+      at Request.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141720:10)
+      at Request.emit (events.js:314:20)
+      at IncomingMessage.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141642:12)
+      at Object.onceWrapper (events.js:420:28)
+      at IncomingMessage.emit (events.js:326:22)
+      at endReadableNT (_stream_readable.js:1244:12)
+      at processTicksAndRejections (internal/process/task_queues.js:80:21)
 
 npm manifest: 
   {
-  	"name": "@corecodeio/api",
-  	"version": "1.0.0",
-  	"dependencies": {
-  		"@corecodeio/database": "*",
-  		"@corecodeio/libraries": "1.0.3",
-  		"apollo-server-express": "^2.16.1",
-  		"convict": "^6.0.0",
-  		"express": "^4.17.1",
-  		"jsonwebtoken": "^8.5.1",
-  		"twilio": "^3.48.1"
-  	},
-  	"devDependencies": {
-  		"@graphql-codegen/cli": "^1.17.7",
-  		"@graphql-codegen/typescript": "^1.17.7",
-  		"@graphql-codegen/typescript-resolvers": "^1.17.7",
-  		"@types/jest": "^26.0.4",
-  		"apollo-server-testing": "^2.16.1",
-  		"jest": "^26.1.0",
-  		"supertest": "^4.0.2",
-  		"ts-jest": "^26.1.2",
-  		"ts-node-dev": "^1.0.0-pre.50",
-  		"typescript": "^3.9.6"
-  	}
+    "name": "@corecodeio/api",
+    "version": "1.0.0",
+    "scripts": {
+      "start:debug": "ts-node-dev --inspect=9230 --no-notify --respawn ./src",
+      "api:schema:generate": "graphql-codegen"
+    },
+    "dependencies": {
+      "@corecodeio/libraries": "^1.0.5",
+      "@corecodeio/database": "*",
+      "apollo-server-express": "^2.16.1",
+      "convict": "^6.0.0",
+      "express": "^4.17.1",
+      "express-jwt": "^6.0.0",
+      "jsonwebtoken": "^8.5.1",
+      "twilio": "^3.48.1"
+    },
+    "devDependencies": {
+      "@graphql-codegen/cli": "^1.17.7",
+      "@graphql-codegen/typescript": "^1.17.7",
+      "@graphql-codegen/typescript-resolvers": "^1.17.7",
+      "@types/express-jwt": "^0.0.42",
+      "@types/jest": "^26.0.4",
+      "apollo-server-testing": "^2.16.1",
+      "jest": "^26.1.0",
+      "supertest": "^4.0.2",
+      "ts-jest": "^26.1.2",
+      "ts-node-dev": "^1.0.0-pre.50",
+      "typescript": "^3.9.6"
+    }
   }
 
 yarn manifest: 
@@ -710,10 +716,12 @@ Lockfile:
       exec-sh "^0.3.2"
       minimist "^1.2.0"
   
-  "@corecodeio/libraries@1.0.3":
-    version "1.0.3"
-    resolved "https://npm.pkg.github.com/download/@corecodeio/libraries/1.0.3/c89c26b0ab03be7ffc033c8dccbd5f13cd5808236b587c45d74f0d2980557a37#be7b670a737c18a3b2c44a2c1ed2e22134dfd1af"
-    integrity sha512-4L7ApSX8rA9hzmc65gA7LkaAzhUeZH4iOa9J47nbFV1JZ01Ok0qhKzHPYHPdA3Lv4Bxwee29pzQOLCqQHrqsPQ==
+  "@corecodeio/libraries@^1.0.5":
+    version "1.0.5"
+    resolved "https://npm.pkg.github.com/download/@corecodeio/libraries/1.0.5/29b2a406b765654e6029f384e9a9065c0d60f76e68962a2cd3074964ff96ca48#f363ca8dda179ad983db92a3f446fddebf2944ef"
+    integrity sha512-MbfVN7gIC1ePCODG4Wi8d052/oQkU7kJDfMlK1aH3W1JlXnoJDE6DhtlB811rB1xAWkQ8PKdvBDcnFcNlkcDwQ==
+    dependencies:
+      graphql-tag "^2.11.0"
   
   "@graphql-codegen/cli@^1.17.7":
     version "1.17.7"
@@ -1399,6 +1407,14 @@ Lockfile:
     dependencies:
       "@types/express" "*"
   
+  "@types/express-jwt@^0.0.42":
+    version "0.0.42"
+    resolved "https://registry.yarnpkg.com/@types/express-jwt/-/express-jwt-0.0.42.tgz#4f04e1fadf9d18725950dc041808a4a4adf7f5ae"
+    integrity sha512-WszgUddvM1t5dPpJ3LhWNH8kfNN8GPIBrAGxgIYXVCEGx6Bx4A036aAuf/r5WH9DIEdlmp7gHOYvSM6U87B0ag==
+    dependencies:
+      "@types/express" "*"
+      "@types/express-unless" "*"
+  
   "@types/express-serve-static-core@*":
     version "4.17.9"
     resolved "https://registry.yarnpkg.com/@types/express-serve-static-core/-/express-serve-static-core-4.17.9.tgz#2d7b34dcfd25ec663c25c85d76608f8b249667f1"
@@ -1407,6 +1423,13 @@ Lockfile:
       "@types/node" "*"
       "@types/qs" "*"
       "@types/range-parser" "*"
+  
+  "@types/express-unless@*":
+    version "0.5.1"
+    resolved "https://registry.yarnpkg.com/@types/express-unless/-/express-unless-0.5.1.tgz#4f440b905e42bbf53382b8207bc337dc5ff9fd1f"
+    integrity sha512-5fuvg7C69lemNgl0+v+CUxDYWVPSfXHhJPst4yTLcqi4zKJpORCxnDrnnilk3k0DTq/WrAUdvXFs01+vUqUZHw==
+    dependencies:
+      "@types/express" "*"
   
   "@types/express@*", "@types/express@4.17.7", "@types/express@^4.17.7":
     version "4.17.7"
@@ -2023,6 +2046,11 @@ Lockfile:
     integrity sha512-aiieFW/7h3hY0Bq5d+ktDBejxuwR78vRu9hDUdR8rNhSaQ29VzPL4AoIRG7D/c7tdenwOcKvgPM6tIxB3cB6HA==
     dependencies:
       retry "0.12.0"
+  
+  async@^1.5.0:
+    version "1.5.2"
+    resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
+    integrity sha1-7GphrlZIDAw8skHJVhjiCJL5Zyo=
   
   asynckit@^0.4.0:
     version "0.4.0"
@@ -3168,6 +3196,21 @@ Lockfile:
       jest-message-util "^26.1.0"
       jest-regex-util "^26.0.0"
   
+  express-jwt@^6.0.0:
+    version "6.0.0"
+    resolved "https://registry.yarnpkg.com/express-jwt/-/express-jwt-6.0.0.tgz#20886c730983ffb1c706a4383235df86eff349b8"
+    integrity sha512-C26y9myRjx7CyhZ+BAT3p+gQyRCoDZ7qo8plCvLDaRT6je6ALIAQknT6XLVQGFKwIy/Ux7lvM2MNap5dt0T7gA==
+    dependencies:
+      async "^1.5.0"
+      express-unless "^0.3.0"
+      jsonwebtoken "^8.1.0"
+      lodash.set "^4.0.0"
+  
+  express-unless@^0.3.0:
+    version "0.3.1"
+    resolved "https://registry.yarnpkg.com/express-unless/-/express-unless-0.3.1.tgz#2557c146e75beb903e2d247f9b5ba01452696e20"
+    integrity sha1-JVfBRudb65A+LSR/m1ugFFJpbiA=
+  
   express@^4.17.1:
     version "4.17.1"
     resolved "https://registry.yarnpkg.com/express/-/express-4.17.1.tgz#4491fc38605cf51f8629d39c2b5d026f98a4c134"
@@ -3612,7 +3655,7 @@ Lockfile:
     dependencies:
       iterall "^1.2.1"
   
-  graphql-tag@2.11.0, graphql-tag@^2.9.2:
+  graphql-tag@2.11.0, graphql-tag@^2.11.0, graphql-tag@^2.9.2:
     version "2.11.0"
     resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.11.0.tgz#1deb53a01c46a7eb401d6cb59dec86fa1cccbffd"
     integrity sha512-VmsD5pJqWJnQZMUeRwrDhfgoyqcfwEkvtpANqcoUG8/tOLkwNgU9mzub/Mc78OJMhHjx7gfAMTxzdG43VGg3bA==
@@ -4737,7 +4780,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
     integrity sha1-LHS27kHZPKUbe1qu6PUDYx0lKnM=
   
-  jsonwebtoken@^8.5.1:
+  jsonwebtoken@^8.1.0, jsonwebtoken@^8.5.1:
     version "8.5.1"
     resolved "https://registry.yarnpkg.com/jsonwebtoken/-/jsonwebtoken-8.5.1.tgz#00e71e0b8df54c2121a1f26137df2280673bcc0d"
     integrity sha512-XjwVfRS6jTMsqYs0EsuJ4LGxXV14zQybNd4L2r0UvbVnSF9Af8x7p5MzbJ90Ioz/9TI41/hTCvznF/loiSzn8w==
@@ -4933,6 +4976,11 @@ Lockfile:
     version "4.1.1"
     resolved "https://registry.yarnpkg.com/lodash.once/-/lodash.once-4.1.1.tgz#0dd3971213c7c56df880977d504c88fb471a97ac"
     integrity sha1-DdOXEhPHxW34gJd9UEyI+0cal6w=
+  
+  lodash.set@^4.0.0:
+    version "4.3.2"
+    resolved "https://registry.yarnpkg.com/lodash.set/-/lodash.set-4.3.2.tgz#d8757b1da807dde24816b0d6a84bea1a76230b23"
+    integrity sha1-2HV7HagH3eJIFrDWqEvqGnYjCyM=
   
   lodash.sortby@^4.7.0:
     version "4.7.0"

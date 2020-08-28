@@ -6,9 +6,10 @@
     "api:schema:generate": "graphql-codegen"
   },
   "dependencies": {
-    "@corecodeio/libraries": "^1.0.5",
     "@corecodeio/database": "*",
+    "@corecodeio/libraries": "^1.0.5",
     "apollo-server-express": "^2.16.1",
+    "awesome-phonenumber": "^2.37.1",
     "convict": "^6.0.0",
     "express": "^4.17.1",
     "express-jwt": "^6.0.0",
