@@ -10,9 +10,18 @@ datasource db {
 model Contact {
   id            String      @id
   phoneNumberId String      @unique
+  emailId       String      @unique
   userId        String      @unique
+  Email         Email       @relation(fields: [emailId], references: [id])
   PhoneNumber   PhoneNumber @relation(fields: [phoneNumberId], references: [id])
   User          User        @relation(fields: [userId], references: [id])
+}
+
+model Email {
+  id         String    @id
+  address    String
+  verifiedAt DateTime?
+  Contact    Contact?
 }
 
 model PhoneNumber {
