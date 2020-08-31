@@ -12,7 +12,7 @@ export const PhoneNumberVerificationMiddleware = ({number}): String => {
 export const PhonNumberCountryCode = (number): Number => {
   const phoneNumber = new PhoneNumber(number);
   if (!phoneNumber.isValid() && !phoneNumber.canBeInternationallyDialled()) {
-    throw new Error("Phone Number Invalid or not Nnternationally");
+    throw new Error("Phone Number Invalid or cannot be dialed internationally");
   }
 
   return phoneNumber.getCountryCode();
