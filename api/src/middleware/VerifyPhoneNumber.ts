@@ -9,7 +9,7 @@ export const PhoneNumberVerificationMiddleware = ({number}): String => {
   return phoneNumber.getNumber();
 };
 
-export const PhonNumberCountryCode = (number): Number => {
+export const PhoneNumberCountryCode = (number): Number => {
   const phoneNumber = new PhoneNumber(number);
   if (!phoneNumber.isValid() && !phoneNumber.canBeInternationallyDialled()) {
     throw new Error("Phone Number Invalid or cannot be dialed internationally");
