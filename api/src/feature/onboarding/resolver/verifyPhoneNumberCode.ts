@@ -7,7 +7,11 @@ export const verifyPhoneNumberCode: MutationResolvers<
   IContext
 >["verifyPhoneNumberCode"] = (parent, { input }, { dependencies }) => {
   try {
-    const verfyPhonNumber = VerfyPhonNumber(input)
+    const phoneNumberVerification = dependencies.provide(phoneNumberVerificationMiddlewareInjectionKey);
+    
+    if (!phoneNumberVerification.isValid(input.phoneNumber)) {
+      throw phoneNumberVerification.invalidPhoneNumberError; // este tiene que ser de tipo ApolloError. 
+    }
     if (verfyPhonNumber.length > 0 ){
       const onboardingController = dependencies.provide(
         OnboardingControllerInjectionKey
