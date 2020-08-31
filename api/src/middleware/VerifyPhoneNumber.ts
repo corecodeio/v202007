@@ -1,6 +1,6 @@
 import PhoneNumber from "awesome-phonenumber";
 
-export const VerfyPhonNumber = ({number}): String => {
+export const PhoneNumberVerificationMiddleware = ({number}): String => {
   const phoneNumber = new PhoneNumber(number);
   if (!phoneNumber.isValid()) {
     throw new Error("Phone Number Invalid");
@@ -9,10 +9,10 @@ export const VerfyPhonNumber = ({number}): String => {
   return phoneNumber.getNumber();
 };
 
-export const PhonNumberCountryCode = (number): Number => {
+export const PhoneNumberCountryCode = (number): Number => {
   const phoneNumber = new PhoneNumber(number);
   if (!phoneNumber.isValid() && !phoneNumber.canBeInternationallyDialled()) {
-    throw new Error("Phone Number Invalid or not Nnternationally");
+    throw new Error("Phone Number Invalid or cannot be dialed internationally");
   }
 
   return phoneNumber.getCountryCode();
