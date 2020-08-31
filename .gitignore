@@ -6,3 +6,4 @@ lerna-debug.log
 dist/
 corecodeio.jwt
 corecodeio.jwt.pub
+yarn-error.log
