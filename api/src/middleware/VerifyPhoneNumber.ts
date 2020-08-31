@@ -1,6 +1,6 @@
 import PhoneNumber from "awesome-phonenumber";
 
-export const VerfyPhonNumber = ({number}): String => {
+export const PhoneNumberVerificationMiddleware = ({number}): String => {
   const phoneNumber = new PhoneNumber(number);
   if (!phoneNumber.isValid()) {
     throw new Error("Phone Number Invalid");
