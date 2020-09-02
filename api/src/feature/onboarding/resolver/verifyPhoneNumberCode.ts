@@ -1,6 +1,6 @@
 import { MutationResolvers } from "@corecodeio/libraries/api";
-import { PhoneNumberExistMiddlewareInjectionKey, PhoneNumberVerificationMiddlewareInjectionKey } from "../../../middleware/InjectionKeys";
-import { phoneNumberExistMiddlewareError } from '../../../middleware/phoneNumberExist/error';
+import { PhoneNumberExistsMiddlewareInjectionKey, PhoneNumberVerificationMiddlewareInjectionKey } from "../../../middleware/InjectionKeys";
+import { phoneNumberExistsMiddlewareError } from "../../../middleware/phoneNumberExist/error";
 import { phoneNumberVerificationMiddlewareError } from "../../../middleware/phoneNumberVerification/error";
 import { IContext } from "../../../server/interface/IContext";
 import { OnboardingControllerInjectionKey } from "../InjectionKeys";
@@ -17,12 +17,12 @@ export const verifyPhoneNumberCode: MutationResolvers<
       throw phoneNumberVerificationMiddlewareError.invalidPhoneNumberError; // este tiene que ser de tipo ApolloError.
     }
 
-    const phoneNumberExistMiddleware = dependencies.provide(
-      PhoneNumberExistMiddlewareInjectionKey
-    )
+    const phoneNumberExistsMiddleware = dependencies.provide(
+      PhoneNumberExistsMiddlewareInjectionKey
+    );
 
-    if (!phoneNumberExistMiddleware.isValidAsync(input) ){
-      throw phoneNumberExistMiddlewareError.phoneNumberExistError;
+    if (await !phoneNumberExistsMiddleware.isValidAsync(input)) {
+      throw phoneNumberExistsMiddlewareError.phoneNumberExistsError;
     }
 
     const onboardingController = dependencies.provide(

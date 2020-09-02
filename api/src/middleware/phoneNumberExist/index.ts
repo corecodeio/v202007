@@ -4,24 +4,24 @@ import { IMiddleware } from "../interface/IMiddleware";
 
 export class PhoneNumberExistMiddleware
   implements IMiddleware<VerifyPhoneNumberCodeInput> {
-  isValid() { return false}
+  isValid() {
+    return false;
+  }
   async isValidAsync(input) {
     try {
-      return await prisma.phoneNumber
-        .findMany({
-          where: {
-            number: input.phoneNumber,
-          },
-          select: {
-            id: true,
-          },
-        })
-        .then((num) => {
-          if (num.length > 0) {
-            return true;
-          }
-          return false;
-        });
+      const phoneNumberExist = await prisma.phoneNumber.findMany({
+        where: {
+          number: input.phoneNumber,
+        },
+        select: {
+          id: true,
+          verifiedAt: true,
+        },
+      });
+
+      if (!phoneNumberExist["verifiedAt"]) {
+        return true;
+      }
     } catch (error) {
       return false;
     } finally {

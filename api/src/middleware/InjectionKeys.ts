@@ -12,8 +12,8 @@ export const PhoneNumberVerificationMiddlewareInjectionKey: InjectionKey<PhoneNu
   },
 };
 
-export const PhoneNumberExistMiddlewareInjectionKey: InjectionKey<PhoneNumberExistMiddleware> = {
-  name: "PhoneNumberExistMiddlewareInjectionKey",
+export const PhoneNumberExistsMiddlewareInjectionKey: InjectionKey<PhoneNumberExistMiddleware> = {
+  name: "PhoneNumberExistsMiddlewareInjectionKey",
   scope: InjectionKeyScope.singleton,
   closure: (dependencies) => {
     const onboardingController = new PhoneNumberExistMiddleware();
