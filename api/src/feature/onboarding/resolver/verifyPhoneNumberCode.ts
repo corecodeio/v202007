@@ -1,5 +1,8 @@
 import { MutationResolvers } from "@corecodeio/libraries/api";
-import { PhoneNumberExistsMiddlewareInjectionKey, PhoneNumberVerificationMiddlewareInjectionKey } from "../../../middleware/InjectionKeys";
+import {
+  PhoneNumberExistsMiddlewareInjectionKey,
+  PhoneNumberVerificationMiddlewareInjectionKey,
+} from "../../../middleware/InjectionKeys";
 import { phoneNumberExistsMiddlewareError } from "../../../middleware/phoneNumberExist/error";
 import { phoneNumberVerificationMiddlewareError } from "../../../middleware/phoneNumberVerification/error";
 import { IContext } from "../../../server/interface/IContext";
@@ -21,7 +24,7 @@ export const verifyPhoneNumberCode: MutationResolvers<
       PhoneNumberExistsMiddlewareInjectionKey
     );
 
-    if (await !phoneNumberExistsMiddleware.isValidAsync(input)) {
+    if (await !phoneNumberExistsMiddleware.isValid(input)) {
       throw phoneNumberExistsMiddlewareError.phoneNumberExistsError;
     }
 
