@@ -1,7 +1,6 @@
 import {
-  PhoneNumber,
   PhoneNumberCreateWithoutContactInput,
-  PrismaClient
+  PrismaClient,
 } from "@prisma/client";
 
 const prisma = new PrismaClient();
@@ -30,24 +29,6 @@ async function createUser(
   }
 }
 
-async function GetUserByPhoneNumber({ number }: PhoneNumber) {
-  try {
-    return await prisma.phoneNumber.findMany({
-      where: {
-        number,
-      },
-      select: {
-        id: true,
-      },
-    });
-  } catch (error) {
-    return error;
-  } finally {
-    await prisma.$disconnect();
-  }
+for (const phoneNumber of ["+50212345642", "+50212345621"]) {
+  createUser(phoneNumber);
 }
-
-export const UserPhoneNumberQuery = {
-  createUser,
-  GetUserByPhoneNumber,
-};
