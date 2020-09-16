@@ -9,16 +9,16 @@ describe("PhoneNumberVerificationMiddlewareTest", () => {
   );
   test("Should return a response with true", async () => {
     const inputTrue = {
-      phoneNumber: "+50252546525",
+      phoneNumber: "52521251",
     };
 
-    expect(phoneNumberVerification.isValid(inputTrue)).toBeTruthy();
+    expect(await phoneNumberVerification.isValid(inputTrue)).toBe(true);
   });
 
   test("Should return a response with false", async () => {
     const inputFalse = {
-      phoneNumber: "52546525",
+      phoneNumber: "12345642",
     };
-    expect(phoneNumberVerification.isValid(inputFalse)).toBeTruthy();
+    expect(await phoneNumberVerification.isValid(inputFalse)).toBe(false);
   });
 });
