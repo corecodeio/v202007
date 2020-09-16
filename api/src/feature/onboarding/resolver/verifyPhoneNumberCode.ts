@@ -16,7 +16,7 @@ export const verifyPhoneNumberCode: MutationResolvers<
       PhoneNumberVerificationMiddlewareInjectionKey
     );
 
-    if (!phoneNumberVerificationMiddleware.isValid(input)) {
+    if (await !phoneNumberVerificationMiddleware.isValid(input)) {
       throw phoneNumberVerificationMiddlewareError.invalidPhoneNumberError; // este tiene que ser de tipo ApolloError.
     }
 
