@@ -1,6 +1,6 @@
 import prisma from "@corecodeio/database";
 import { VerifyPhoneNumberCodeInput } from "@corecodeio/libraries/api";
-import { IMiddlewareAsync } from '../interface/IMiddlewareAsync';
+import { IMiddlewareAsync } from "../interface/IMiddlewareAsync";
 
 export class PhoneNumberExistMiddleware
   implements IMiddlewareAsync<VerifyPhoneNumberCodeInput> {
