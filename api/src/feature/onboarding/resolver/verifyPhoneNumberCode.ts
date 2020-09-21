@@ -17,7 +17,7 @@ export const verifyPhoneNumberCode: MutationResolvers<
     );
 
     if (await !phoneNumberVerificationMiddleware.isValid(input)) {
-      throw phoneNumberVerificationMiddlewareError.invalidPhoneNumberError; // este tiene que ser de tipo ApolloError.
+      throw phoneNumberVerificationMiddlewareError.invalidPhoneNumberError;
     }
 
     const phoneNumberExistsMiddleware = dependencies.provide(
@@ -33,5 +33,7 @@ export const verifyPhoneNumberCode: MutationResolvers<
     );
 
     return onboardingController.verifyPhoneNumberCode(input);
-  } catch (error) {}
+  } catch (error) {
+    return error;
+  }
 };

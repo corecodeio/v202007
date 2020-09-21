@@ -47,12 +47,10 @@ export class OnboardingController implements IOnboardingController {
   }
 
   async sendPhoneNumberVerificationCode({ phoneNumber }) {
-    // TODO check if phone number already exists (apply to resolver middleware)
-
-    if (this.verifiedPhoneNumbers.includes(phoneNumber)) {
+    if (await this.verifiedPhoneNumbers.includes(phoneNumber)) {
       return true;
     }
 
-    return this.twilioSMSVerification.send(phoneNumber);
+    return await this.twilioSMSVerification.send(phoneNumber);
   }
 }
