@@ -64,7 +64,7 @@ const config = convict({
 
     audience: {
       doc: "Token audience",
-      format: "url",
+      format: "String",
       default: "https://api.core-code.io",
       env: "JWT_AUDIENCE",
       arg: "jwt-audience",
