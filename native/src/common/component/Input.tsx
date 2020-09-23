@@ -11,16 +11,16 @@ import {
   compose,
   display,
   flexbox,
-  FlexProps,
   height,
-  JustifyContentProps,
   space,
   SpaceProps,
+  TextAlignProps,
   typography,
   width,
 } from "styled-system";
+import theme from "../../constant/theme";
 
-export const ViewLayout = compose(
+export const InputLayout = compose(
   color,
   space,
   display,
@@ -31,30 +31,36 @@ export const ViewLayout = compose(
   typography
 );
 
-type ViewProps =
+type InputTextProps =
   | TouchableOpacityProps
-  | FlexProps
-  | JustifyContentProps
   | ColorStyleProps
   | BackgroundColorProps
   | SpaceProps
   | BorderProps
+  | TextAlignProps
   | AlignItemsProps;
 
-const ViewBase = styled.View<ViewProps>`
-  ${ViewLayout}
+const InputBase = styled.TextInput<InputTextProps>`
+  ${InputLayout}
 `;
 
-ViewBase.defaultProps = {};
-
-export const View: React.FC<ViewProps & { container?: boolean }> = ({
-  children,
-  container,
-  ...props
-}) => {
-  return (
-    <ViewBase {...props} px={container ? 14 : 0}>
-      {children}
-    </ViewBase>
-  );
+InputBase.defaultProps = {
+  paddingTop: 21,
+  paddingBottom: 21,
 };
+
+export const PrimaryInput: React.FC<InputTextProps> = ({
+  children,
+  ...props
+}) => (
+  <InputBase
+    {...props}
+    autoFocus
+    paddingTop={2}
+    paddingBottom={2}
+    borderColor={theme.colors.black.main}
+    borderWidth={1}
+    borderRadius={5}
+    textAlign={"center"}
+  ></InputBase>
+);
