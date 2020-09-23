@@ -59,5 +59,3 @@ migration 20200817232800-init..20200818222652-init
 -  contact    Contact
 -}
 ```
-
-

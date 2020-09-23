@@ -91,5 +91,3 @@ migration ..20200817232800-init
 +  contact    Contact
 +}
 ```
-
-

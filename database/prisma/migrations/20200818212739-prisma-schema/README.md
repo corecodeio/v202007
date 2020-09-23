@@ -91,5 +91,3 @@ migration ..20200818212739-prisma-schema
 +  contact    Contact
 +}
 ```
-
-
