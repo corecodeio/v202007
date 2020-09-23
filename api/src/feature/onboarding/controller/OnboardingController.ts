@@ -1,4 +1,5 @@
 import { prisma } from "@corecodeio/database";
+import PhoneNumber from "awesome-phonenumber";
 import config from "../../../util/config";
 import { ISession } from "../../../util/session/interface/ISession";
 import { ISMSVerification } from "../../../util/twilio/interface/ISMSVerification";
@@ -27,6 +28,10 @@ export class OnboardingController implements IOnboardingController {
     if (!isTwilioVerified) {
       throw new Error("Error al verificar");
     }
+
+    const phone = new PhoneNumber(phoneNumber, "GT");
+
+    phoneNumber = phone.getNumber("international");
 
     const user = await prisma.user.create({
       data: {
