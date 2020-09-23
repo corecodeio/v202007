@@ -31,7 +31,7 @@ export class OnboardingController implements IOnboardingController {
 
     const phone = new PhoneNumber(phoneNumber, "GT");
 
-    phoneNumber = phone.getNumber("international");
+    phoneNumber = phone.getNumber("e164");
 
     const user = await prisma.user.create({
       data: {
