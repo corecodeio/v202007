@@ -28,7 +28,7 @@ export const sendPhoneNumberVerificationCode: QueryResolvers<
       PhoneNumberExistsMiddlewareInjectionKey
     );
 
-    if (await !phoneNumberExistsMiddleware.isValid(input)) {
+    if (await phoneNumberExistsMiddleware.isValid(input)) {
       throw phoneNumberExistsMiddlewareError.phoneNumberExistsError;
     }
 
