@@ -21,6 +21,6 @@ export class PhoneNumberExistMiddleware
       (phoneNumber) => phoneNumber.verifiedAt !== null
     );
 
-    return isPhoneNumberVerified.length > 0;
+    return isPhoneNumberVerified.length === 0;
   }
 }

@@ -1,6 +1,7 @@
 import { prisma } from "@corecodeio/database";
 import config from "../../../util/config";
 import { ISession } from "../../../util/session/interface/ISession";
+import formatPhoneNumber from "../../../util/transform/formatPhoneNumber";
 import { ISMSVerification } from "../../../util/twilio/interface/ISMSVerification";
 import { IOnboardingController } from "../interface/IOnboardingController";
 
@@ -28,13 +29,15 @@ export class OnboardingController implements IOnboardingController {
       throw new Error("Error al verificar");
     }
 
+    const number = formatPhoneNumber(phoneNumber);
+
     const user = await prisma.user.create({
       data: {
         contact: {
           create: {
             phoneNumber: {
               create: {
-                number: phoneNumber,
+                number,
                 verifiedAt: new Date(),
               },
             },
