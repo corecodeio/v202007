@@ -17,7 +17,7 @@ describe("PhoneNumberExistsMiddlewareTest", () => {
 
   test("Should return a response with false", async () => {
     const inputFalse = {
-      phoneNumber: "12345642",
+      phoneNumber: "5642",
     };
     expect(await phoneNumberExistsMiddleware.isValid(inputFalse)).toBe(false);
   });

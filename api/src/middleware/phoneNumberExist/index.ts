@@ -1,13 +1,16 @@
 import prisma from "@corecodeio/database";
 import { VerifyPhoneNumberCodeInput } from "@corecodeio/libraries/api";
+import formatPhoneNumber from "../../util/transform/formatPhoneNumber";
 import { IMiddlewareAsync } from "../interface/IMiddlewareAsync";
 
 export class PhoneNumberExistMiddleware
   implements IMiddlewareAsync<VerifyPhoneNumberCodeInput> {
   async isValid(input) {
+    const number = formatPhoneNumber(input.phoneNumber);
+
     const phoneNumbers = await prisma.phoneNumber.findMany({
       where: {
-        number: input.phoneNumber,
+        number,
       },
       select: {
         verifiedAt: true,
