@@ -1,6 +1,7 @@
 import { QuerySendPhoneNumberVerificationCode } from "@corecodeio/libraries/api/onboarding";
 import { Dependencies } from "@corecodeio/libraries/di";
 import { createTestClient } from "apollo-server-testing";
+import * as faker from "faker";
 import { createApolloServer } from "../../../../server";
 import { TwilioSMSVerificationInjectionKey } from "../../../../util/twilio/InjectionKeys";
 import { ISMSVerification } from "../../../../util/twilio/interface/ISMSVerification";
@@ -21,7 +22,7 @@ describe("sendPhoneNumberVerificationCode", () => {
       query: QuerySendPhoneNumberVerificationCode,
       variables: {
         input: {
-          phoneNumber: "123",
+          phoneNumber: faker.phone.phoneNumber("+5023#######"),
         },
       },
     });
