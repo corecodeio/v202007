@@ -17,10 +17,10 @@ export class PhoneNumberExistMiddleware
       },
     });
 
-    const isPhoneNumberVerified = phoneNumbers.filter(
+    const verifiedPhoneNumbers = phoneNumbers.filter(
       (phoneNumber) => phoneNumber.verifiedAt !== null
     );
 
-    return isPhoneNumberVerified.length === 0;
+    return verifiedPhoneNumbers.length === 0;
   }
 }
