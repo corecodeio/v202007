@@ -6,18 +6,24 @@
     "api:schema:generate": "graphql-codegen"
   },
   "dependencies": {
-    "@corecodeio/libraries": "1.0.3",
+    "@corecodeio/database": "*",
+    "@corecodeio/libraries": "^1.0.5",
     "apollo-server-express": "^2.16.1",
+    "awesome-phonenumber": "^2.37.1",
     "convict": "^6.0.0",
     "express": "^4.17.1",
+    "express-jwt": "^6.0.0",
+    "jsonwebtoken": "^8.5.1",
     "twilio": "^3.48.1"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.17.7",
     "@graphql-codegen/typescript": "^1.17.7",
     "@graphql-codegen/typescript-resolvers": "^1.17.7",
+    "@types/express-jwt": "^0.0.42",
     "@types/jest": "^26.0.4",
     "apollo-server-testing": "^2.16.1",
+    "faker": "^5.1.0",
     "jest": "^26.1.0",
     "supertest": "^4.0.2",
     "ts-jest": "^26.1.2",

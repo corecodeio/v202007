@@ -1,12 +1,20 @@
 import { QuerySendPhoneNumberVerificationCodeArgs } from "@corecodeio/libraries/api";
 import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
-import { Text, TextInput } from "react-native";
-import { PrimaryButton } from "../../../common/component/button";
-import { View } from "../../../common/component/view";
+import { Text } from "react-native";
+import {
+  FooterText,
+  FooterView,
+  PrimaryText,
+  SecondaryText,
+  TertiaryText,
+  View,
+} from "../../../common/component";
+import { PrimaryButton } from "../../../common/component/Button";
 import { DependencyContext } from "../../../common/context/DependencyContext";
 import { OnboardingStackScreenName } from "../../../navigation/model/OnboardingStackScreenName";
 import { OnboardingStackParamList } from "../../../navigation/types/OnboardingStackParamList";
+import IntlTelInput from "../component/IntlTelInput";
 import { OnboardingInjectionKey } from "../InjectionKey";
 
 type Props = {
@@ -37,11 +45,13 @@ export const SendPhoneNumberVerificationCode: React.FC<Props> = ({
   } = onboarding.useSendPhoneNumberVerificationCode();
 
   React.useEffect(() => {
-    if (!Boolean(result) || !result.valueOf()) {
+    if (!Boolean(result)) {
       return;
     }
 
-    navigation.navigate(OnboardingStackScreenName.VerifyPhoneNumberCode);
+    navigation.navigate(OnboardingStackScreenName.VerifyPhoneNumberCode, {
+      phoneNumber: args.input.phoneNumber,
+    });
   }, [result]);
 
   const onSetPhoneNumber = (phoneNumber: string) => {
@@ -58,18 +68,27 @@ export const SendPhoneNumberVerificationCode: React.FC<Props> = ({
 
   return (
     <View container flex={1} justifyContent="center">
-      <TextInput
-        value={args.input.phoneNumber}
-        autoFocus
-        onChangeText={onSetPhoneNumber}
-        placeholder={"+502 1234 56 78"}
-      />
+      <PrimaryText>MariaApp</PrimaryText>
+      <SecondaryText paddingTop={30}>
+        Selecciona tu código de país e ingresa tu numero de teléfono
+      </SecondaryText>
+      <IntlTelInput onSetPhoneNumber={onSetPhoneNumber} />
       {sendPhoneNumberVerificationCodeError && (
         <Text>Error al enviar el SMS. Intenta de nuevo.</Text>
       )}
-      <PrimaryButton mb={4} onPress={onSendPhoneNumberVerificationCode}>
+      <PrimaryButton
+        mb={4}
+        onPress={onSendPhoneNumberVerificationCode}
+        disabled={!args.input.phoneNumber}
+      >
         Continuar
       </PrimaryButton>
+      <TertiaryText>
+        Al crear tu cuenta aceptas los Términos y Condiciones
+      </TertiaryText>
+      <FooterView container>
+        <FooterText>¿Ya tienes cuenta?</FooterText>
+      </FooterView>
     </View>
   );
 };

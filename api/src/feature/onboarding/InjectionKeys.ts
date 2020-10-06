@@ -1,4 +1,5 @@
 import { InjectionKey, InjectionKeyScope } from "@corecodeio/libraries/di";
+import { SessionInjectionKey } from "../../util/session/InjectionKeys";
 import { TwilioSMSVerificationInjectionKey } from "../../util/twilio/InjectionKeys";
 import { OnboardingController } from "./controller/OnboardingController";
 
@@ -10,9 +11,13 @@ export const OnboardingControllerInjectionKey: InjectionKey<OnboardingController
       TwilioSMSVerificationInjectionKey
     );
 
+    const session = dependencies.provide(SessionInjectionKey);
+
     const onboardingController = new OnboardingController(
-      twilioSMSVerification
+      twilioSMSVerification,
+      session
     );
+
     return onboardingController;
   },
 };
