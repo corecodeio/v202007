@@ -39,11 +39,8 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
   const dependencies = React.useContext(DependencyContext);
   const onboarding = dependencies.provide(OnboardingInjectionKey);
 
-  const [args, setInput] = React.useState<MutationVerifyPhoneNumberCodeArgs>({
-    input: {
-      phoneNumber: route.params.phoneNumber,
-      code: "",
-    },
+	const [args, setInput] = React.useState<MutationVerifyPhoneNumberCodeArgs>(() => {
+		return { input: { phoneNumber: route.params.phoneNumber, code: '' } };
   });
 
   const {
