@@ -14,7 +14,6 @@ import { PrimaryButton } from "../../../common/component/Button";
 import { DependencyContext } from "../../../common/context/DependencyContext";
 import { OnboardingStackScreenName } from "../../../navigation/model/OnboardingStackScreenName";
 import { OnboardingStackParamList } from "../../../navigation/types/OnboardingStackParamList";
-import IntlTelInput from "../component/IntlTelInput";
 import { OnboardingInjectionKey } from "../InjectionKey";
 
 type Props = {
@@ -34,7 +33,7 @@ export const SendPhoneNumberVerificationCode: React.FC<Props> = ({
     QuerySendPhoneNumberVerificationCodeArgs
   >({
     input: {
-      phoneNumber: "",
+      phoneNumber: "+50231234567",
     },
   });
 
@@ -55,7 +54,7 @@ export const SendPhoneNumberVerificationCode: React.FC<Props> = ({
   }, [result]);
 
   const onSetPhoneNumber = (phoneNumber: string) => {
-    setInput({ input: { phoneNumber } });
+    setInput({ input: { phoneNumber: args.input.phoneNumber } });
   };
 
   const onSendPhoneNumberVerificationCode = async () => {
@@ -72,7 +71,7 @@ export const SendPhoneNumberVerificationCode: React.FC<Props> = ({
       <SecondaryText paddingTop={30}>
         Selecciona tu código de país e ingresa tu numero de teléfono
       </SecondaryText>
-      <IntlTelInput onSetPhoneNumber={onSetPhoneNumber} />
+      {/* <TextInput onChange={(e) => onSetPhoneNumber(e.target.valueOf())} /> */}
       {sendPhoneNumberVerificationCodeError && (
         <Text>Error al enviar el SMS. Intenta de nuevo.</Text>
       )}

@@ -1,4 +1,9 @@
-import { LazyQueryResult, useLazyQuery } from "@apollo/client";
+import {
+  LazyQueryResult,
+  MutationResult,
+  useLazyQuery,
+  useMutation,
+} from "@apollo/client";
 import {
   Mutation,
   MutationVerifyPhoneNumberCodeArgs,
@@ -7,8 +12,8 @@ import {
   QuerySendPhoneNumberVerificationCodeArgs,
 } from "@corecodeio/libraries/api";
 import {
+  MutationVerifyPhoneNumberCode,
   QuerySendPhoneNumberVerificationCode,
-  QueryVerifyPhoneNumberCode,
 } from "@corecodeio/libraries/api/onboarding";
 import React from "react";
 import { AuthToken } from "../../../util/auth/model/AuthToken";
@@ -52,19 +57,16 @@ export class Onboarding {
     executeVerifyPhoneNumberCode: (
       input: MutationVerifyPhoneNumberCodeArgs
     ) => void;
-    result: Mutation["verifyPhoneNumberCode"] | undefined;
+    result: Mutation["verifyPhoneNumberCode"] | null | undefined;
     error: Error | null;
-    queryResult: LazyQueryResult<
-      Mutation["verifyPhoneNumberCode"],
-      MutationVerifyPhoneNumberCodeArgs
-    >;
+    queryResult: MutationResult<Mutation["verifyPhoneNumberCode"]>;
   } {
     const [error, setError] = React.useState<Error | null>(null);
 
-    const [execute, queryResult] = useLazyQuery<
+    const [execute, queryResult] = useMutation<
       Mutation["verifyPhoneNumberCode"],
       MutationVerifyPhoneNumberCodeArgs
-    >(QueryVerifyPhoneNumberCode);
+    >(MutationVerifyPhoneNumberCode);
 
     if (Boolean(queryResult?.data?.token)) {
       this.authToken.set((queryResult.data as OnboardingSession).token);
@@ -73,6 +75,7 @@ export class Onboarding {
     return {
       executeVerifyPhoneNumberCode: async ({ input }) => {
         try {
+          console.log(input);
           await execute({
             variables: {
               input,

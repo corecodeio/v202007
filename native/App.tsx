@@ -12,7 +12,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-export const App: React.FC<{}> = () => {
+export const App: React.FC = () => {
   return (
     <DependencyContext.Provider value={dependencies}>
       <ApolloProvider client={client}>

@@ -18,7 +18,7 @@ import {
 import { DependencyContext } from "../../../common/context/DependencyContext";
 import { OnboardingStackScreenName } from "../../../navigation/model/OnboardingStackScreenName";
 import { OnboardingStackParamList } from "../../../navigation/types/OnboardingStackParamList";
-import CodeInput from "../component/CodeInput";
+import CodeInput, { CELL_COUNT } from "../component/CodeInput";
 import { OnboardingInjectionKey } from "../InjectionKey";
 
 type Props = {
@@ -39,9 +39,11 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
   const dependencies = React.useContext(DependencyContext);
   const onboarding = dependencies.provide(OnboardingInjectionKey);
 
-	const [args, setInput] = React.useState<MutationVerifyPhoneNumberCodeArgs>(() => {
-		return { input: { phoneNumber: route.params.phoneNumber, code: '' } };
-  });
+  const [args, setInput] = React.useState<MutationVerifyPhoneNumberCodeArgs>(
+    () => ({
+      input: { phoneNumber: route.params.phoneNumber, code: "" },
+    })
+  );
 
   const {
     executeVerifyPhoneNumberCode,
@@ -71,10 +73,20 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
 
   const onSetVerificationCode = (code: string) => {
     setInput({ input: { phoneNumber: args.input.phoneNumber, code } });
+    console.log(args);
+
+    if (code.length === CELL_COUNT) {
+      onSendPhoneNumberVerificationCode();
+    }
   };
 
   const onSendPhoneNumberVerificationCode = async () => {
-    await executeVerifyPhoneNumberCode(args);
+    try {
+      console.log(args);
+      await executeVerifyPhoneNumberCode(args);
+    } catch (error) {
+      console.log(error); // TODO handle error
+    }
   };
 
   return (
@@ -92,9 +104,10 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
           <PrimaryText>MariaApp</PrimaryText>
           <SecondaryText paddingTop={30}>
             Introduce el código que hemos enviado a tu{"\n"}
-            número +502 01020304
+            número {args.input.phoneNumber}
           </SecondaryText>
           <CodeInput onChangeText={onSetVerificationCode} />
+
           <FooterView container>
             <FooterText>¿Ya tienes cuenta?</FooterText>
           </FooterView>
