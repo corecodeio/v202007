@@ -8,7 +8,7 @@ import {
 } from "react-native-confirmation-code-field";
 import styles from "./styles";
 
-const CELL_COUNT = 6;
+export const CELL_COUNT = 6;
 
 type Props = {
   onChangeText: (text: string) => void | undefined;
@@ -22,7 +22,7 @@ const CodeInput: React.FC<Props> = ({ onChangeText }) => {
     setValue,
   });
 
-  const onSetVerifcationCode = (code: string) => {
+  const onSetVerificationCode = (code: string) => {
     onChangeText(code);
     setValue(code);
   };
@@ -32,7 +32,7 @@ const CodeInput: React.FC<Props> = ({ onChangeText }) => {
       {...props}
       ref={ref}
       value={value}
-      onChangeText={onSetVerifcationCode}
+      onChangeText={onSetVerificationCode}
       cellCount={CELL_COUNT}
       rootStyle={styles.codeFiledRoot}
       keyboardType="number-pad"
