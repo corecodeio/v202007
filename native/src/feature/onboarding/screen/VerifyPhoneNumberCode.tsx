@@ -39,11 +39,9 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
   const dependencies = React.useContext(DependencyContext);
   const onboarding = dependencies.provide(OnboardingInjectionKey);
 
-  const [args, setInput] = React.useState<MutationVerifyPhoneNumberCodeArgs>(
-    () => ({
-      input: { phoneNumber: route.params.phoneNumber, code: "" },
-    })
-  );
+  const [args, setInput] = React.useState<MutationVerifyPhoneNumberCodeArgs>({
+    input: { phoneNumber: route.params.phoneNumber, code: "" },
+  });
 
   const {
     executeVerifyPhoneNumberCode,
@@ -65,6 +63,12 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
     handleError();
   }, [error]);
 
+  React.useEffect(() => {
+    if (args.input.code.length === CELL_COUNT) {
+      onSendPhoneNumberVerificationCode();
+    }
+  }, [args.input.code]);
+
   const handleError = () => {
     Alert.alert("Oops!", error?.message, [
       { text: "Entendido", onPress: () => null },
@@ -73,16 +77,10 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
 
   const onSetVerificationCode = (code: string) => {
     setInput({ input: { phoneNumber: args.input.phoneNumber, code } });
-    console.log(args);
-
-    if (code.length === CELL_COUNT) {
-      onSendPhoneNumberVerificationCode();
-    }
   };
 
   const onSendPhoneNumberVerificationCode = async () => {
     try {
-      console.log(args);
       await executeVerifyPhoneNumberCode(args);
     } catch (error) {
       console.log(error); // TODO handle error
@@ -107,7 +105,6 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
             número {args.input.phoneNumber}
           </SecondaryText>
           <CodeInput onChangeText={onSetVerificationCode} />
-
           <FooterView container>
             <FooterText>¿Ya tienes cuenta?</FooterText>
           </FooterView>
