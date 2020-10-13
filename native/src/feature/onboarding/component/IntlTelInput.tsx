@@ -9,6 +9,10 @@ const IntlTelInput: React.FC<Props> = ({ onSetPhoneNumber }) => {
   const [, setFormattedValue] = React.useState("");
   const phoneInput = React.useRef<PhoneInput>(null);
 
+  const onChangePhoneNumber = (number: string) => {
+    setValue(number);
+  };
+
   const onChangeFormattedText = (text: string) => {
     setFormattedValue(text);
     onSetPhoneNumber(text);
@@ -24,6 +28,7 @@ const IntlTelInput: React.FC<Props> = ({ onSetPhoneNumber }) => {
       placeholder="Número de Teléfono"
       defaultValue={value}
       defaultCode="GT"
+      onChangeText={ onChangePhoneNumber }
       onChangeFormattedText={onChangeFormattedText}
       withDarkTheme
       autoFocus
