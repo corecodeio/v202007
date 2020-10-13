@@ -14,4 +14,8 @@ export class AuthToken {
   async set(token: string) {
     await this.store.set(StoreKeyName.authToken, token);
   }
+
+  async get() {
+    return await this.store.get(StoreKeyName.authToken);
+  }
 }

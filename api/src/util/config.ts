@@ -14,7 +14,7 @@ const config = convict({
       format: "*",
       default: Array(15)
         .fill(null)
-        .map((_, i) => `+5020000000${i}`),
+        .map((_, i) => `+5023000000${i}`),
       env: "VERIFIED_PHONE_NUMBERS",
     },
   },
