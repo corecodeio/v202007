@@ -3,14 +3,24 @@ import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
 import {
   dependencies,
-  DependencyContext,
+  DependencyContext
 } from "./src/common/context/DependencyContext";
 import OnboardingNavigator from "./src/navigation/navigator/OnboardingNavigator";
 
 const client = new ApolloClient({
-  uri: `http://localhost:8001/graphql`,
+  uri: `https://1e3026c46da0.ngrok.io/graphql`,
   cache: new InMemoryCache(),
+  headers: {
+    authorization: `Bearer`
+  }
 });
+
+/**
+ * rxjs observer https://rxjs-dev.firebaseapp.com/guide/overview
+ * behavior subject
+ * useState
+ * useEffect
+ */
 
 export const App: React.FC = () => {
   return (
