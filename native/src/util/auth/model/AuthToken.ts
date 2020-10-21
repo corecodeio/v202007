@@ -27,7 +27,10 @@ export class AuthToken {
 
   useAuthToken() {
     const [token, setToken] = React.useState<string>("");
-    this.observable.subscribe(setToken);
+    const subscription = this.observable.subscribe(setToken);
+
+    React.useEffect(() => subscription.unsubscribe(), []);
+
     return token;
   }
 }
