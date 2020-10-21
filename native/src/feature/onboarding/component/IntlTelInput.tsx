@@ -28,7 +28,7 @@ const IntlTelInput: React.FC<Props> = ({ onSetPhoneNumber }) => {
       placeholder="Número de Teléfono"
       defaultValue={value}
       defaultCode="GT"
-      onChangeText={ onChangePhoneNumber }
+      onChangeText={onChangePhoneNumber}
       onChangeFormattedText={onChangeFormattedText}
       withDarkTheme
       autoFocus
