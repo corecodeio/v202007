@@ -1,28 +1,30 @@
-import { gql } from "apollo-server-express";
+import { gql } from 'apollo-server-express';
 
 export const schema = gql`
-  type Query {
-    sendPhoneNumberVerificationCode(
-      input: SendPhoneNumberVerificatioCodeInput!
-    ): Boolean!
-  }
+	type Query {
+		sendPhoneNumberVerificationCode(input: SendPhoneNumberVerificatioCodeInput!): Boolean!
+	}
 
-  type Mutation {
-    verifyPhoneNumberCode(
-      input: VerifyPhoneNumberCodeInput!
-    ): OnboardingSession!
-  }
+	type Mutation {
+		verifyPhoneNumberCode(input: VerifyPhoneNumberCodeInput!): OnboardingSession!
 
-  input SendPhoneNumberVerificatioCodeInput {
-    phoneNumber: String!
-  }
+		registerStore(input: RegisterStoreInput!): Boolean!
+	}
 
-  input VerifyPhoneNumberCodeInput {
-    phoneNumber: String!
-    code: String!
-  }
+	input SendPhoneNumberVerificatioCodeInput {
+		phoneNumber: String!
+	}
 
-  type OnboardingSession {
-    token: String!
-  }
+	input VerifyPhoneNumberCodeInput {
+		phoneNumber: String!
+		code: String!
+	}
+
+	input RegisterStoreInput {
+		url: String!
+	}
+
+	type OnboardingSession {
+		token: String!
+	}
 `;
