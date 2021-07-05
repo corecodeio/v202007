@@ -1,6 +1,7 @@
 import { MutationVerifyPhoneNumberCode } from "@corecodeio/libraries/api/onboarding";
 import { Dependencies } from "@corecodeio/libraries/di";
 import { createTestClient } from "apollo-server-testing";
+import axios from "axios";
 import * as faker from "faker";
 import { createApolloServer } from "../../../../server";
 import { TwilioSMSVerificationInjectionKey } from "../../../../util/twilio/InjectionKeys";
@@ -15,8 +16,8 @@ dependencies.override<ISMSVerification>(
   smsVerificationMock
 );
 
-describe("verifyPhoneNumberCode", () => {
-  test("Should return a response of type OnboardingSession", async () => {
+describe("registerStore", () => {
+  test("success", async () => {
     const { mutate } = createTestClient(apolloServer);
 
     const res = await mutate({
@@ -29,11 +30,26 @@ describe("verifyPhoneNumberCode", () => {
       },
     });
 
-    const twilioSMSVerification = dependencies.provide(
-      TwilioSMSVerificationInjectionKey
-    );
+    const token = res.data.verifyPhoneNumberCode.token;
 
-    expect(twilioSMSVerification.verify).toHaveBeenCalledTimes(1);
-    expect(res.data.verifyPhoneNumberCode.token).toBeDefined();
+    const result = await axios("http://localhost:8001/graphql", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      data: JSON.stringify({
+        query: `
+          mutation RegisterStore($input: RegisterStoreInput!) {
+            registerStore(input: $input)
+          }
+        `,
+        variables: {
+          input: {
+            url: "https://www.amazon.com",
+          },
+        },
+      }),
+    });
   });
 });

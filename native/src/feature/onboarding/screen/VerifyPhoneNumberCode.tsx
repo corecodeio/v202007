@@ -18,7 +18,7 @@ import {
 import { DependencyContext } from "../../../common/context/DependencyContext";
 import { OnboardingStackScreenName } from "../../../navigation/model/OnboardingStackScreenName";
 import { OnboardingStackParamList } from "../../../navigation/types/OnboardingStackParamList";
-import CodeInput from "../component/CodeInput";
+import CodeInput, { CELL_COUNT } from "../component/CodeInput";
 import { OnboardingInjectionKey } from "../InjectionKey";
 
 type Props = {
@@ -40,10 +40,7 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
   const onboarding = dependencies.provide(OnboardingInjectionKey);
 
   const [args, setInput] = React.useState<MutationVerifyPhoneNumberCodeArgs>({
-    input: {
-      phoneNumber: route.params.phoneNumber,
-      code: "",
-    },
+    input: { phoneNumber: route.params.phoneNumber, code: "" },
   });
 
   const {
@@ -66,6 +63,12 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
     handleError();
   }, [error]);
 
+  React.useEffect(() => {
+    if (args.input.code.length === CELL_COUNT) {
+      onSendPhoneNumberVerificationCode();
+    }
+  }, [args.input.code]);
+
   const handleError = () => {
     Alert.alert("Oops!", error?.message, [
       { text: "Entendido", onPress: () => null },
@@ -77,7 +80,11 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
   };
 
   const onSendPhoneNumberVerificationCode = async () => {
-    await executeVerifyPhoneNumberCode(args);
+    try {
+      await executeVerifyPhoneNumberCode(args);
+    } catch (error) {
+      console.log(error); // TODO handle error
+    }
   };
 
   return (
@@ -95,7 +102,7 @@ export const VerifyPhoneNumberCode: React.FC<Props> = ({
           <PrimaryText>MariaApp</PrimaryText>
           <SecondaryText paddingTop={30}>
             Introduce el código que hemos enviado a tu{"\n"}
-            número +502 01020304
+            número {args.input.phoneNumber}
           </SecondaryText>
           <CodeInput onChangeText={onSetVerificationCode} />
           <FooterView container>

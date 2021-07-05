@@ -61,9 +61,7 @@ export const SendPhoneNumberVerificationCode: React.FC<Props> = ({
   const onSendPhoneNumberVerificationCode = async () => {
     try {
       await executeSendPhoneNumberVerificationCode(args);
-    } catch (error) {
-      // TODO handle error
-    }
+    } catch (error) {}
   };
 
   return (
@@ -72,6 +70,7 @@ export const SendPhoneNumberVerificationCode: React.FC<Props> = ({
       <SecondaryText paddingTop={30}>
         Selecciona tu código de país e ingresa tu numero de teléfono
       </SecondaryText>
+      {/* <TextInput onChange={(e) => onSetPhoneNumber(e.target.valueOf())} /> */}
       <IntlTelInput onSetPhoneNumber={onSetPhoneNumber} />
       {sendPhoneNumberVerificationCodeError && (
         <Text>Error al enviar el SMS. Intenta de nuevo.</Text>

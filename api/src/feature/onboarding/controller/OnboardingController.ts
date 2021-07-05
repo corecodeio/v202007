@@ -20,10 +20,9 @@ export class OnboardingController implements IOnboardingController {
   }
 
   async verifyPhoneNumberCode({ phoneNumber, code }) {
-    const isTwilioVerified = await this.twilioSMSVerification.verify(
-      phoneNumber,
-      code
-    );
+    const isTwilioVerified = this.verifiedPhoneNumbers.includes(phoneNumber)
+      ? true
+      : await this.twilioSMSVerification.verify(phoneNumber, code);
 
     if (!isTwilioVerified) {
       throw new Error("Error al verificar");
@@ -50,7 +49,7 @@ export class OnboardingController implements IOnboardingController {
   }
 
   async sendPhoneNumberVerificationCode({ phoneNumber }) {
-    if (await this.verifiedPhoneNumbers.includes(phoneNumber)) {
+    if (this.verifiedPhoneNumbers.includes(phoneNumber)) {
       return true;
     }
 

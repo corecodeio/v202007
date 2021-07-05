@@ -1,3 +1,4 @@
+import { registerStore } from "./registerStore";
 import { sendPhoneNumberVerificationCode } from "./sendPhoneNumberVerificationCode";
 import { verifyPhoneNumberCode } from "./verifyPhoneNumberCode";
 
@@ -7,4 +8,5 @@ export const queries = {
 
 export const mutations = {
   verifyPhoneNumberCode,
+  registerStore,
 };
